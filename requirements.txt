@@ -1,4 +1,5 @@
 python
 streamlit
+streamlit pyinstaller
 os
 sys
