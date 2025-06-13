@@ -774,7 +774,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
         ),
         "dica": (
             "Quando a pressão muda em B, o volume de óleo que desce no ramo da esquerda sobe no ramo da direita, elevando o mercúrio. "
-            "A variação de volume é igual nos dois ramos: $A_2 \Delta y_2 = A_1 \Delta y_1$.\n"
+            r"A variação de volume é igual nos dois ramos: $A_2 \Delta y_2 = A_1 \Delta y_1$.\n"
             "A variação de nível de mercúrio é duas vezes a subida em cada braço. "
             "Relacione a variação de pressão à variação de altura: $\\Delta P = \\gamma_{Hg} \\cdot \\Delta h$."
         ),
@@ -1004,8 +1004,8 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "Determine a vazão volumétrica do escoamento na tubulação."
         ),
         "dica": (
-            "A velocidade do jato pode ser obtida pela fórmula da energia cinética: $U = \sqrt{2gh}$, onde $h$ é a altura atingida. "
-            "Depois calcule a área da seção e a vazão $Q = A \cdot U$."
+            r"A velocidade do jato pode ser obtida pela fórmula da energia cinética: $U = \sqrt{2gh}$, onde $h$ é a altura atingida. "
+            r"Depois calcule a área da seção e a vazão $Q = A \cdot U$."
         ),
         "resolucao": r"""
     **Resolução passo a passo:**
@@ -1395,7 +1395,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
         "imagem": "images/3_68.png",
         "enunciado": (
             "Um combustível, densidade igual a 0,77, escoa no medidor Venturi mostrado na Fig. P3.68. "
-            "A velocidade do escoamento é $4,6\,\mathrm{m/s}$ no tubo que apresenta diâmetro igual a $152\,\mathrm{mm}$. "
+            r"A velocidade do escoamento é $4,6\,\mathrm{m/s}$ no tubo que apresenta diâmetro igual a $152\,\mathrm{mm}$. "
             "Determine a elevação $h$ no tubo aberto que está conectado à garganta do medidor. "
             "Admita que os efeitos viscosos são desprezíveis."
         ),
@@ -1687,7 +1687,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > $U$: velocidade média
     """,
         "resposta": {"$\Delta P$" : 591},
-        "tolerancia": {"\Delta P": 20},
+        "tolerancia": {"$\Delta P$": 20},
         "unidade": "Pa"
     },
 
