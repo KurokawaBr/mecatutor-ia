@@ -844,8 +844,9 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > - $\Delta P$: diferença de pressão
     """,
         "resposta": "A1/A2>>1",
-        "tolerancia": "",
+        "tolerancia": 0,
         "unidade": "formato de equação",
+        "tipo": "texto",
     },
 
     "2.44": {
@@ -1623,7 +1624,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > $h_0$: diferença inicial  
     > $t$: tempo
     """,
-        "resposta": {"t_total": 0.353},
+        "resposta": {"$t_{total}$": 0.353},
         "tolerancia": {"t_total": 0.01},
         "unidade": "s"
     },
@@ -1685,7 +1686,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > $D$: diâmetro  
     > $U$: velocidade média
     """,
-        "resposta": {"\Delta P": 591},
+        "resposta": {"$\Delta P$" : 591},
         "tolerancia": {"\Delta P": 20},
         "unidade": "Pa"
     },
@@ -2033,9 +2034,9 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > $A$: área da seção  
     > $L$: comprimento do tubo
         """,
-        "resposta": {"Q_B": 0.0269, "Q_C": 0.0239, "Q_total": 0.0508},
+        "resposta": {"$Q_B$": 0.0269, "$Q_C$": 0.0239, "$Q_{total}$": 0.0508},
         "tolerancia": {"Q_B": 0.001, "Q_C": 0.001, "Q_total": 0.002},
-        "unidade": {"Q_B": "m^3/s", "Q_C": "m^3/s", "Q_total": "m^3/s"}
+        "unidade": {"$Q_B$": "m^3/s", "$Q_C$": "m^3/s", "$Q_{total}$": "m^3/s"}
     },
 
     "8.109": {
@@ -2098,7 +2099,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     \Delta h = \frac{1}{2g}\left[ \frac{Q^2}{A_2^2} - \frac{Q^2}{A_1^2} \right]
     $$
     $$
-    \Delta h = \frac{Q^2}{2g} \left(\\frac{1}{A_2^2} - \frac{1}{A_1^2}\right)
+    \Delta h = \frac{Q^2}{2g}\left( \frac{1}{A_2^2} - \frac{1}{A_1^2} \right)
     $$
     $$
     Q^2 = 2g \Delta h \left[ \frac{1}{A_2^2} - \frac{1}{A_1^2}\right]^{-1}
@@ -2120,7 +2121,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     $$
     Q \approx 0,015~\mathrm{m}^3/\mathrm{s} = 15~\mathrm{L/s}
     $$
-    > **Obs:** O valor pode variar levemente conforme o valor usado para $\\rho$.
+    > **Obs:** O valor pode variar levemente conforme o valor usado para $\rho$.
         """,
         "resposta": {"Q": 0.015},
         "tolerancia": {"Q": 0.001},
@@ -2221,14 +2222,15 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             user_val = st.text_input(f"Digite sua resposta para {label} em {unidade}:", key=f"{questao_id}_{subitem}")
             if user_val:
                 if q.get("tipo", "numero") == "texto":
-                    # Não converte! Só compara strings
-                    if user_val.strip().replace(" ", "") == q["resposta"][subitem].strip().replace(" ", ""):
+                    # Compara strings diretamente, sem conversão
+                    if user_val.strip().replace(" ", "") == str(q["resposta"][subitem]).strip().replace(" ", ""):
                         st.success(f"{label}: ✅ Resposta correta!")
                         acertos.append(True)
                     else:
                         st.error(f"{label}: ❌ Incorreta! Resposta correta: {q['resposta'][subitem]}")
                         acertos.append(False)
                 else:
+                    # Só tenta converter se for número!
                     try:
                         valor = float(user_val.replace(",", "."))
                         if abs(valor - q["resposta"][subitem]) <= q["tolerancia"][subitem]:
@@ -2243,6 +2245,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
         user_input = st.text_input(f"Digite sua resposta em {q['unidade']}:", key=f"{questao_id}_unico")
         if user_input:
             if q.get("tipo", "numero") == "texto":
+                # Não tenta converter, compara texto!
                 if user_input.strip().replace(" ", "") == str(q["resposta"]).strip().replace(" ", ""):
                     st.success("✅ Resposta correta!")
                 else:
