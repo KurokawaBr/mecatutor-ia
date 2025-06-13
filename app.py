@@ -843,9 +843,9 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > - $\gamma_{Hg}$: peso específico do mercúrio  
     > - $\Delta P$: diferença de pressão
     """,
-        "resposta": "A1/A2 >> 1",
-        "tolerancia": None,
-        "unidade": "",
+        "resposta": "A1/A2>>1",
+        "tolerancia": "",
+        "unidade": "formato de equação",
     },
 
     "2.44": {
@@ -904,7 +904,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     """,
         "resposta": 12.3,
         "tolerancia": 0.2,
-        "unidade": "°"
+        "unidade": "θ em grau °"
     },
 
     "2.46": {
@@ -2216,30 +2216,46 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     if isinstance(q["resposta"], dict):
         acertos = []
         for subitem in q["resposta"]:
+            unidade = q["unidade"][subitem] if isinstance(q["unidade"], dict) else q["unidade"]
             label = f"({subitem})"
-            user_val = st.text_input(f"Digite sua resposta para {label} em {q['unidade']}:", key=f"{questao_id}_{subitem}")
+            user_val = st.text_input(f"Digite sua resposta para {label} em {unidade}:", key=f"{questao_id}_{subitem}")
             if user_val:
-                try:
-                    valor = float(user_val.replace(",", "."))
-                    if abs(valor - q["resposta"][subitem]) <= q["tolerancia"][subitem]:
+                if q.get("tipo", "numero") == "texto":
+                    # Não converte! Só compara strings
+                    if user_val.strip().replace(" ", "") == q["resposta"][subitem].strip().replace(" ", ""):
                         st.success(f"{label}: ✅ Resposta correta!")
                         acertos.append(True)
                     else:
-                        st.error(f"{label}: ❌ Incorreta! Resposta correta: {q['resposta'][subitem]:.4f} {q['unidade']}")
+                        st.error(f"{label}: ❌ Incorreta! Resposta correta: {q['resposta'][subitem]}")
                         acertos.append(False)
-                except:
-                    st.warning(f"{label}: Digite um valor numérico válido.")
+                else:
+                    try:
+                        valor = float(user_val.replace(",", "."))
+                        if abs(valor - q["resposta"][subitem]) <= q["tolerancia"][subitem]:
+                            st.success(f"{label}: ✅ Resposta correta!")
+                            acertos.append(True)
+                        else:
+                            st.error(f"{label}: ❌ Incorreta! Resposta correta: {q['resposta'][subitem]:.4f} {unidade}")
+                            acertos.append(False)
+                    except:
+                        st.warning(f"{label}: Digite um valor numérico válido.")
     else:
         user_input = st.text_input(f"Digite sua resposta em {q['unidade']}:", key=f"{questao_id}_unico")
         if user_input:
-            try:
-                valor = float(user_input.replace(',', '.'))
-                if abs(valor - q["resposta"]) <= q["tolerancia"]:
+            if q.get("tipo", "numero") == "texto":
+                if user_input.strip().replace(" ", "") == str(q["resposta"]).strip().replace(" ", ""):
                     st.success("✅ Resposta correta!")
                 else:
-                    st.error(f"❌ Resposta incorreta! A resposta correta é {q['resposta']:.4f} {q['unidade']}.")
-            except:
-                st.warning("Digite um valor numérico válido.")
+                    st.error(f"❌ Resposta incorreta! A resposta correta é {q['resposta']}.")
+            else:
+                try:
+                    valor = float(user_input.replace(',', '.'))
+                    if abs(valor - q["resposta"]) <= q["tolerancia"]:
+                        st.success("✅ Resposta correta!")
+                    else:
+                        st.error(f"❌ Resposta incorreta! A resposta correta é {q['resposta']:.4f} {q['unidade']}.")
+                except:
+                    st.warning("Digite um valor numérico válido.")
             
     # Botão para mostrar resolução
     if st.button("👁️ Ver resolução"):
