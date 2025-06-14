@@ -1,6 +1,8 @@
 import streamlit as st
+import pandas as pd
 import os
 import sys
+from streamlit import dataframe
 
 def resource_path(relative_path):
     """
@@ -79,7 +81,9 @@ Um fluido é uma substância que se deforma continuamente sob ação de uma tens
   - $P$ = pressão ($Pa$)
   - $F$ = força normal à superfície ($N$)
   - $A$ = área ($m^2$)
+""")
 
+        st.markdown(r"""
 ---
 
 ### Exemplos Práticos
@@ -2201,7 +2205,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
 
     st.markdown(f"**Capítulo {q['capitulo']}**")
     st.markdown(f"**Enunciado:** {q['enunciado']}")
-
+    
     # Adiciona imagem associada, se houver
     img_path = resource_path(q["imagem"]) if "imagem" in q and q["imagem"] else None
     if img_path and os.path.exists(img_path):
