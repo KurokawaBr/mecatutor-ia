@@ -349,8 +349,8 @@ elif choice == "Exercícios Resolvidos":
         "que contém os seguintes fluidos:\n"
         "(a) mercúrio, (b) água e (c) álcool etílico.\n"
         "Calcule as alturas levando em consideração a pressão de vapor destes fluidos e compare com os valores obtidos desconsiderando a pressão de vapor.\n"
-        "Densidades: mercúrio = 13.600 kg/m³, água = 1000 kg/m³, álcool = 789 kg/m³.\n"
-        "Pressão de vapor a 20°C: mercúrio = 0,17 Pa, água = 2.340 Pa, álcool = 5.850 Pa.\n"
+        "Densidades: mercúrio = 13.600 kg/m³, água = 999 kg/m³, álcool = 789 kg/m³.\n"
+        "Pressão de vapor da tabela 1.5: mercúrio = 0,16 Pa, água = 1.777 Pa, álcool = 5.900 Pa.\n"
         "g = 9,81 m/s²."
     ),
     "dica": (
@@ -379,45 +379,45 @@ elif choice == "Exercícios Resolvidos":
 
    | Fluido   | $\rho$ (kg/m³) | $P_{vap}$ (Pa) |
    |----------|---------------|---------------|
-   | Mercúrio | 13.600        | 0,17          |
-   | Água     | 1.000         | 2.340         |
-   | Álcool   | 789           | 5.850         |
+   | Mercúrio | 13.600        | 0,16          |
+   | Água     | 999           | 1.770         |
+   | Álcool   | 789           | 5.900         |
 
 3. **(a) Mercúrio**
 
    - **Com pressão de vapor:**
      $$
-     h = \frac{101\,000 - 0,17}{13\,600 \times 9,81} \approx \frac{100\,999,83}{133\,416} \approx 0,7574\,m = 75,74\,cm
+     h = \frac{101\,000 - 0,16}{13\,600 \times 9,81} \approx \frac{100\,999,84}{133\,416} \approx 0,7570\,m = 75,70\,cm
      $$
    - **Sem pressão de vapor:**
      $$
-     h = \frac{101\,000}{13\,600 \times 9,81} \approx 0,7576\,m = 75,76\,cm
+     h = \frac{101\,000}{13\,600 \times 9,81} \approx 0,7570\,m = 75,70\,cm
      $$
-   - **Diferença é desprezível.**
+   - **Diferença é desprezível. Por tanto = 0**
 
 4. **(b) Água**
 
    - **Com pressão de vapor:**
      $$
-     h = \frac{101\,000 - 2\,340}{1\,000 \times 9,81} = \frac{98\,660}{9\,810} \approx 10,06\,m
+     h = \frac{101\,000 - 1\,770}{999 \times 9,81} = \frac{99\,120}{9\,800,19} \approx 10,13\,m
      $$
    - **Sem pressão de vapor:**
      $$
-     h = \frac{101\,000}{9\,810} \approx 10,29\,m
+     h = \frac{101\,000}{9\,800,19} \approx 10,31\,m
      $$
-   - **A diferença devido ao vapor é significativa (~23 cm).**
+   - **A diferença devido ao vapor é significativa (~18 cm).**
 
 5. **(c) Álcool etílico**
 
    - **Com pressão de vapor:**
      $$
-     h = \frac{101\,000 - 5\,850}{789 \times 9,81} = \frac{95\,150}{7\,736,09} \approx 12,30\,m
+     h = \frac{101\,000 - 5\,900}{789 \times 9,81} = \frac{95\,100}{7\,740,1} \approx 12,29\,m
      $$
    - **Sem pressão de vapor:**
      $$
-     h = \frac{101\,000}{7\,736,09} \approx 13,06\,m
+     h = \frac{101\,000}{7\,740,1} \approx 13,04\,m
      $$
-   - **A diferença é significativa (~76 cm).**
+   - **A diferença é significativa (~75 cm).**
 
 > **Resumo dos símbolos:**  
 > - $P_{atm}$: pressão atmosférica  
@@ -430,16 +430,16 @@ elif choice == "Exercícios Resolvidos":
 A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para líquidos voláteis como água e álcool.
 """,
         "resposta": {
-            "a": 0.7574,   # altura mercúrio (m), com pressão de vapor
-            "b": 10.06,    # altura água (m), com pressão de vapor
-            "c": 12.30     # altura álcool (m), com pressão de vapor
+            "a": 0,        # altura mercúrio (m), com pressão de vapor
+            "b": 0.18,     # altura água (m), com pressão de vapor
+            "c": 0.75      # altura álcool (m), com pressão de vapor
         },
         "tolerancia": {
-            "a": 0.002,
+            "a": 0,
             "b": 0.03,
             "c": 0.05
         },
-        "unidade": "m",
+        "unidade": "m para a diferença da comparação",
     },
 
     "2.24": {
