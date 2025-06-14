@@ -121,13 +121,13 @@ $P = \frac{F}{A} = \frac{500}{0,25} = 2000\,Pa$
 
 - **Variação da pressão com a profundidade:**
   $$
-  \Delta P = \rho g \Delta z
+  \Delta P = \rho g \Delta h
   $$
   Onde:
   - $\Delta P$ = variação de pressão ($Pa$)
   - $\rho$ = densidade ($kg/m^3$)
   - $g$ = gravidade ($m/s^2$)
-  - $\Delta z$ = diferença de profundidade ($m$)
+  - $\Delta h$ = diferença de profundidade ($m$)
   - **Significado:** A pressão aumenta com a profundidade em líquidos.
 
 ### Manometria
@@ -160,7 +160,7 @@ $P = \frac{F}{A} = \frac{500}{0,25} = 2000\,Pa$
 **Exemplo 1: Variação de pressão com profundidade**
 > Qual a pressão no fundo de um tanque de água de $5\,m$ de profundidade? (Considere $\rho_{agua}=1000\,kg/m^3$ e $g=9,81\,m/s^2$)
 
-$\Delta P = \rho g \Delta z = 1000 \times 9,81 \times 5 = 49\,050\,Pa$  
+$\Delta P = \rho g \Delta h = 1000 \times 9,81 \times 5 = 49\,050\,Pa$  
 **Resposta:** A pressão no fundo do tanque é $49,050\,Pa$ acima da atmosférica.
 
 ---
@@ -191,13 +191,13 @@ $E = \rho_{agua} V_{deslocado} g = 1000 \times 0,02 \times 9,81 = 196,2\,N$
         st.markdown(r"""
 ### Equação de Bernoulli (forma geral)
 $$
-P + \frac{1}{2}\rho U^2 + \rho g z = \text{constante}
+P + \frac{1}{2}\rho U^2 + \rho g h = \text{constante}
 $$
 Onde:
 - $P$ = pressão estática do fluido ($Pa$)
 - $\rho$ = densidade ($kg/m^3$)
 - $U$ = velocidade do escoamento ($m/s$)
-- $z$ = altura em relação a um referencial ($m$)
+- $h$ = altura em relação a um referencial ($m$)
 - $g$ = aceleração da gravidade ($m/s^2$)
 
 #### Restrições de uso:
@@ -228,7 +228,7 @@ $U_2 = 14,28\,m/s$
 **Exemplo 2: Tubo vertical**
 > Água sobe $10\,m$ em um tubo estreito. Qual a diferença de pressão necessária para levantar a água essa altura? ($\rho=1000\,kg/m^3$)
 
-$\Delta P = \rho g \Delta z = 1000 \times 9,81 \times 10 = 98\,100\,Pa$
+$\Delta P = \rho g \Delta h = 1000 \times 9,81 \times 10 = 98\,100\,Pa$
 
 ---
 
