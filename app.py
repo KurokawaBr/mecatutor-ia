@@ -483,7 +483,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     P_{2} = 9\,000 + 5\,978,12 - 17\,236\,660
     $$
     $$
-    P_{2} = -17\,221\,681,88 Pa ou \approx -172,22 bar
+    P_{2} = -17\,221\,681,88 {Pa} ou \approx -172,22 bar
     $$
     
     4. **Interpretação da leitura:**
