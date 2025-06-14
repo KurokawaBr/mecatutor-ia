@@ -476,9 +476,12 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     $$
     P_{2} = P_{1} + (\gamma_{agua} \cdot h_{agua}) - (\gamma_{2} \cdot h_{2})
     $$
+    $$
     P_{2} = 9\,000 + (999 \cdot 9,81 \cdot 0,61) - (14\,140 \cdot 1\,219)
     $$
+    $$
     P_{2} = 9\,000 + 5\,978,12 - 17\,236\,660
+    $$
     $$
     P_{2} = -17\,221\,681,88 Pa ou \approx -172,22 bar
     $$
