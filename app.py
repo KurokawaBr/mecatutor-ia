@@ -143,7 +143,7 @@ $P = \frac{F}{A} = \frac{500}{0,25} = 2000\,Pa$
 ### Empuxo – Princípio de Arquimedes
 - **Empuxo ($E$):**
   $$
-  E = \rho_{fluido} V_{deslocado} g
+  E = \rho_{fluido} \cdot V_{deslocado} \cdot g
   $$
   Onde:
   - $E$ = força de empuxo ($N$)
@@ -177,7 +177,7 @@ $\Delta P = 0,12 \times (13\,600 - 1000) \times 9,81 = 14\,012\,Pa$
 **Exemplo 3: Empuxo**
 > Um bloco de madeira ($\rho=600\,kg/m^3$) de volume $0,02\,m^3$ está totalmente submerso em água. Qual o empuxo sobre o bloco?
 
-$E = \rho_{agua} V_{deslocado} g = 1000 \times 0,02 \times 9,81 = 196,2\,N$
+$E = \rho_{agua} \cdot V_{deslocado} \cdot g = 1000 \times 0,02 \times 9,81 = 196,2\,N$
 
 ---
 
