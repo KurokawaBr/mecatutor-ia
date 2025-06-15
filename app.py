@@ -1909,9 +1909,9 @@ A vazão é **$4,51 \times 10^{-3}$ m³/s** e a pressão em P2 é **-5,98 kPa**.
 **Conclusão:**
 Arredondando o coeficiente, a vazão em função do diâmetro D é **$Q = 1,56 D^2$ m³/s**.
 """,
-        "resposta": "Q = 1.56*D**2",
+        "resposta": "1.56*D**2",
         "tolerancia": 0.01,
-        "unidade": "m³/s",
+        "unidade": "equação resultante de Q = () m³/s",
         "tipo": "texto",
     },
     "3.34": {
