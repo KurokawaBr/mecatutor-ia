@@ -501,7 +501,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     **Conclusão:**  
     A diferença de pressão lida no manômetro em U é **32,22 kPa**.
     """,
-        "resposta": 32,22,
+        "resposta": 32.22,
         "tolerancia": 50,
         "unidade": "kPa"
     },
