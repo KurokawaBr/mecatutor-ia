@@ -1911,7 +1911,7 @@ Arredondando o coeficiente, a vazão em função do diâmetro D é **$Q = 1,56 D
 """,
         "resposta": "Q = 1.56*D**2",
         "tolerancia": 0.01,
-        "unidade": "m³/s"
+        "unidade": "m³/s",
         "tipo": "texto",
     },
     "3.34": {
