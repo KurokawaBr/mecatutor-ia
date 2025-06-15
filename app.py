@@ -40,7 +40,9 @@ if choice == "Resumos dos Capítulos":
 ### 1.1 Propriedades Básicas dos Fluidos
 
 #### **Massa Específica (Densidade)**
-$$\rho = \frac{m}{V}$$
+$$
+\rho = \frac{m}{V}
+$$
 
 **Onde:**
 - $\rho$ = massa específica (kg/m³)
@@ -50,7 +52,9 @@ $$\rho = \frac{m}{V}$$
 **Explicação:** A massa específica é uma propriedade fundamental que quantifica a quantidade de massa contida em uma unidade de volume. É essencial para cálculos de força, pressão e energia em sistemas fluidos. Varia com temperatura e pressão, especialmente em gases.
 
 #### **Peso Específico**
-$$\gamma = \rho g$$
+$$
+\gamma = \rho g
+$$
 
 **Onde:**
 - $\gamma$ = peso específico (N/m³)
@@ -60,7 +64,9 @@ $$\gamma = \rho g$$
 **Explicação:** O peso específico relaciona o peso de um fluido ao volume que ele ocupa. É particularmente útil em cálculos de pressão hidrostática e força em superfícies submersas.
 
 #### **Densidade Relativa (Gravidade Específica)**
-$$S = \frac{\rho_{fluido}}{\rho_{água}}$$
+$$
+S = \frac{\rho_{fluido}}{\rho_{água}}
+$$
 
 **Onde:**
 - $S$ = densidade relativa (adimensional)
@@ -72,7 +78,9 @@ $$S = \frac{\rho_{fluido}}{\rho_{água}}$$
 ### 1.2 Lei dos Gases Perfeitos
 
 #### **Equação de Estado dos Gases Perfeitos**
-$$p = \rho R T$$
+$$
+p = \rho R T
+$$
 
 **Onde:**
 - $p$ = pressão absoluta (Pa)
@@ -83,7 +91,9 @@ $$p = \rho R T$$
 **Explicação:** Esta é uma das equações mais importantes para gases. Relaciona pressão, densidade e temperatura para gases ideais. É válida para a maioria dos gases em condições normais (longe da liquefação). A constante $R$ varia para cada gás e está relacionada à massa molecular.
 
 **Forma Alternativa:**
-$$pV = nR_uT$$
+$$
+pV = nR_uT
+$$
 
 **Onde:**
 - $V$ = volume (m³)
@@ -93,7 +103,9 @@ $$pV = nR_uT$$
 ### 1.3 Viscosidade
 
 #### **Lei de Newton da Viscosidade**
-$$\tau = \mu \frac{du}{dy}$$
+$$
+\tau = \mu \frac{du}{dy}
+$$
 
 **Onde:**
 - $\tau$ = tensão de cisalhamento (Pa)
@@ -103,7 +115,9 @@ $$\tau = \mu \frac{du}{dy}$$
 **Explicação:** Esta equação fundamental define a relação entre tensão de cisalhamento e gradiente de velocidade em fluidos newtonianos. A viscosidade dinâmica $\mu$ é uma propriedade do fluido que quantifica sua resistência ao escoamento. Fluidos com alta viscosidade (como mel) resistem mais ao movimento que fluidos com baixa viscosidade (como água).
 
 #### **Viscosidade Cinemática**
-$$\nu = \frac{\mu}{\rho}$$
+$$
+\nu = \frac{\mu}{\rho}
+$$
 
 **Onde:**
 - $\nu$ = viscosidade cinemática (m²/s)
@@ -115,7 +129,9 @@ $$\nu = \frac{\mu}{\rho}$$
 ### 1.4 Compressibilidade
 
 #### **Módulo de Elasticidade Volumétrico**
-$$K = -V \frac{dp}{dV} = \rho \frac{dp}{d\rho}$$
+$$
+K = -V \frac{dp}{dV} = \rho \frac{dp}{d\rho}
+$$
 
 **Onde:**
 - $K$ = módulo de elasticidade volumétrico (Pa)
@@ -126,7 +142,9 @@ $$K = -V \frac{dp}{dV} = \rho \frac{dp}{d\rho}$$
 **Explicação:** O módulo de elasticidade volumétrico quantifica a resistência de um fluido à compressão. Valores altos indicam fluidos pouco compressíveis (líquidos), enquanto valores baixos indicam fluidos muito compressíveis (gases).
 
 #### **Velocidade do Som**
-$$c = \sqrt{\frac{K}{\rho}} = \sqrt{\frac{dp}{d\rho}}$$
+$$
+c = \sqrt{\frac{K}{\rho}} = \sqrt{\frac{dp}{d\rho}}
+$$
 
 **Onde:**
 - $c$ = velocidade do som (m/s)
@@ -138,7 +156,9 @@ $$c = \sqrt{\frac{K}{\rho}} = \sqrt{\frac{dp}{d\rho}}$$
 ### 1.5 Tensão Superficial
 
 #### **Força devido à Tensão Superficial**
-$$F = \sigma L$$
+$$
+F = \sigma L
+$$
 
 **Onde:**
 - $F$ = força devido à tensão superficial (N)
@@ -148,7 +168,9 @@ $$F = \sigma L$$
 **Explicação:** A tensão superficial atua ao longo da linha de contato entre diferentes fases (líquido-gás, líquido-sólido). É importante em fenômenos como formação de gotas, capilaridade e escoamentos com interfaces livres.
 
 #### **Pressão através de Interface Curva (Equação de Young-Laplace)**
-$$\Delta p = \sigma \left(\frac{1}{R_1} + \frac{1}{R_2}\right)$$
+$$
+\Delta p = \sigma \left(\frac{1}{R_1} + \frac{1}{R_2}\right)
+$$
 
 **Onde:**
 - $\Delta p$ = diferença de pressão através da interface (Pa)
@@ -160,7 +182,9 @@ $$\Delta p = \sigma \left(\frac{1}{R_1} + \frac{1}{R_2}\right)$$
 ### 1.6 Pressão de Vapor
 
 #### **Relação de Clausius-Clapeyron (Simplificada)**
-$$p_v = p_{v0} \exp\left[\frac{h_{fg}}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)\right]$$
+$$
+p_v = p_{v0} \exp\left[\frac{h_{fg}}{R}\left(\frac{1}{T_0} - \frac{1}{T}\right)\right]
+$$
 
 **Onde:**
 - $p_v$ = pressão de vapor (Pa)
@@ -240,7 +264,9 @@ $P = \frac{F}{A} = \frac{500}{0,25} = 2000\,Pa$
 ### 2.1 Pressão em Fluidos Estáticos
 
 #### **Equação Fundamental da Estática dos Fluidos**
-$$\frac{dp}{dz} = -\gamma = -\rho g$$
+$$
+\frac{dp}{dz} = -\gamma = -\rho g
+$$
 
 **Onde:**
 - $p$ = pressão (Pa)
@@ -252,7 +278,9 @@ $$\frac{dp}{dz} = -\gamma = -\rho g$$
 **Explicação:** Esta equação fundamental estabelece como a pressão varia com a altura em um fluido estático. O sinal negativo indica que a pressão aumenta com a profundidade. É a base para todos os cálculos de pressão hidrostática.
 
 #### **Variação de Pressão em Fluido Incompressível**
-$$p_2 - p_1 = \rho g (h_1 - h_2) = \gamma h$$
+$$
+p_2 - p_1 = \rho g (h_1 - h_2) = \gamma h
+$$
 
 **Onde:**
 - $p_1, p_2$ = pressões nos pontos 1 e 2 (Pa)
@@ -262,7 +290,9 @@ $$p_2 - p_1 = \rho g (h_1 - h_2) = \gamma h$$
 **Explicação:** Para fluidos incompressíveis (líquidos), a variação de pressão é linear com a altura. Esta é a equação mais usada em aplicações práticas de hidrostática.
 
 #### **Pressão Absoluta vs. Relativa**
-$$p_{abs} = p_{rel} + p_{atm}$$
+$$
+p_{abs} = p_{rel} + p_{atm}
+$$
 
 **Onde:**
 - $p_{abs}$ = pressão absoluta (Pa)
@@ -274,7 +304,9 @@ $$p_{abs} = p_{rel} + p_{atm}$$
 ### 2.2 Manometria
 
 #### **Manômetro em U**
-$$p_A - p_B = \rho_{man} g h$$
+$$
+p_A - p_B = \rho_{man} g h
+$$
 
 **Onde:**
 - $p_A, p_B$ = pressões nos pontos A e B (Pa)
@@ -284,7 +316,9 @@ $$p_A - p_B = \rho_{man} g h$$
 **Explicação:** O manômetro em U é um dispositivo simples e preciso para medir diferenças de pressão. O fluido manométrico (geralmente mercúrio ou água) se desloca proporcionalmente à diferença de pressão.
 
 #### **Manômetro Inclinado**
-$$p_A - p_B = \rho_{man} g L \sin \theta$$
+$$
+p_A - p_B = \rho_{man} g L \sin \theta
+$$
 
 **Onde:**
 - $L$ = comprimento da coluna inclinada (m)
@@ -295,7 +329,9 @@ $$p_A - p_B = \rho_{man} g L \sin \theta$$
 ### 2.3 Forças Hidrostáticas
 
 #### **Força em Superfície Plana Horizontal**
-$$F = p A = \rho g h A$$
+$$
+F = p A = \rho g h A
+$$
 
 **Onde:**
 - $F$ = força hidrostática (N)
@@ -306,7 +342,9 @@ $$F = p A = \rho g h A$$
 **Explicação:** Para superfícies horizontais, a pressão é uniforme e a força é simplesmente o produto da pressão pela área.
 
 #### **Força em Superfície Plana Inclinada**
-$$F = \rho g h_c A$$
+$$
+F = \rho g h_c A
+$$
 
 **Onde:**
 - $h_c$ = profundidade vertical do centroide da superfície (m)
@@ -315,7 +353,9 @@ $$F = \rho g h_c A$$
 **Explicação:** Para superfícies inclinadas, usa-se a profundidade vertical do centroide para calcular a pressão média.
 
 #### **Centro de Pressão**
-$$y_{cp} = y_c + \frac{I_{xc}}{y_c A}$$
+$$
+y_{cp} = y_c + \frac{I_{xc}}{y_c A}
+$$
 
 **Onde:**
 - $y_{cp}$ = posição do centro de pressão (m)
@@ -327,7 +367,9 @@ $$y_{cp} = y_c + \frac{I_{xc}}{y_c A}$$
 ### 2.4 Empuxo e Flutuação
 
 #### **Princípio de Arquimedes**
-$$F_E = \rho_{fluido} g V_{submerso}$$
+$$
+F_E = \rho_{fluido} g V_{submerso}
+$$
 
 **Onde:**
 - $F_E$ = força de empuxo (N)
@@ -337,17 +379,23 @@ $$F_E = \rho_{fluido} g V_{submerso}$$
 **Explicação:** O empuxo é igual ao peso do fluido deslocado pelo corpo submerso. Atua verticalmente para cima através do centro de empuxo (centroide do volume deslocado).
 
 #### **Condição de Equilíbrio para Flutuação**
-$$\rho_{corpo} V_{corpo} g = \rho_{fluido} V_{submerso} g$$
+$$
+\rho_{corpo} V_{corpo} g = \rho_{fluido} V_{submerso} g
+$$
 
 **Simplificando:**
-$$\frac{V_{submerso}}{V_{corpo}} = \frac{\rho_{corpo}}{\rho_{fluido}}$$
+$$
+\frac{V_{submerso}}{V_{corpo}} = \frac{\rho_{corpo}}{\rho_{fluido}}
+$$
 
 **Explicação:** Um corpo flutua quando o empuxo equilibra seu peso. A fração submersa depende da razão entre as densidades do corpo e do fluido.
 
 ### 2.5 Estabilidade de Corpos Flutuantes
 
 #### **Altura Metacêntrica**
-$$GM = BM - BG$$
+$$
+GM = BM - BG
+$$
 
 **Onde:**
 - $GM$ = altura metacêntrica (m)
@@ -357,7 +405,9 @@ $$GM = BM - BG$$
 **Explicação:** A altura metacêntrica determina a estabilidade de um corpo flutuante. Se $GM > 0$, o corpo é estável; se $GM < 0$, é instável.
 
 #### **Raio Metacêntrico**
-$$BM = \frac{I}{V_{submerso}}$$
+$$
+BM = \frac{I}{V_{submerso}}
+$$
 
 **Onde:**
 - $I$ = momento de inércia da área da linha d'água (m⁴)
@@ -368,7 +418,9 @@ $$BM = \frac{I}{V_{submerso}}$$
 ### 2.6 Fluidos com Aceleração
 
 #### **Superfície Livre com Aceleração Linear**
-$$\tan \theta = \frac{a_x}{g + a_z}$$
+$$
+\tan \theta = \frac{a_x}{g + a_z}
+$$
 
 **Onde:**
 - $\theta$ = ângulo da superfície livre com a horizontal (rad)
@@ -378,7 +430,9 @@ $$\tan \theta = \frac{a_x}{g + a_z}$$
 **Explicação:** Quando um recipiente acelera, a superfície livre inclina-se de modo que a resultante das acelerações seja perpendicular à superfície.
 
 #### **Superfície Livre com Rotação**
-$$z = \frac{\omega^2 r^2}{2g} + C$$
+$$
+z = \frac{\omega^2 r^2}{2g} + C
+$$
 
 **Onde:**
 - $z$ = elevação da superfície livre (m)
@@ -426,7 +480,9 @@ $E = \rho_{agua} \cdot V_{deslocado} \cdot g = 1000 \times 0,02 \times 9,81 = 19
 ### 3.1 Equação de Bernoulli
 
 #### **Equação de Bernoulli (Forma Clássica)**
-$$\frac{p_1}{\rho} + \frac{V_1^2}{2} + g z_1 = \frac{p_2}{\rho} + \frac{V_2^2}{2} + g z_2$$
+$$
+\frac{p_1}{\rho} + \frac{V_1^2}{2} + g z_1 = \frac{p_2}{\rho} + \frac{V_2^2}{2} + g z_2
+$$
 
 **Onde:**
 - $p$ = pressão (Pa)
@@ -438,7 +494,9 @@ $$\frac{p_1}{\rho} + \frac{V_1^2}{2} + g z_1 = \frac{p_2}{\rho} + \frac{V_2^2}{2
 **Explicação:** A equação de Bernoulli expressa a conservação de energia mecânica ao longo de uma linha de corrente para fluidos ideais (sem viscosidade) em escoamento permanente. Cada termo representa uma forma de energia por unidade de massa: energia de pressão, energia cinética e energia potencial.
 
 #### **Equação de Bernoulli (Forma de Carga)**
-$$\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 = H$$
+$$
+\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 = H
+$$
 
 **Onde:**
 - $\frac{p}{\gamma}$ = carga de pressão (m)
@@ -449,31 +507,41 @@ $$\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\gamma} + \frac{V_2^2
 **Explicação:** Esta forma expressa a energia em termos de "altura" ou "carga", sendo muito útil em aplicações hidráulicas. A carga total $H$ permanece constante ao longo de uma linha de corrente.
 
 #### **Equação de Bernoulli (Forma de Pressão)**
-$$p_1 + \frac{1}{2}\rho V_1^2 + \rho g z_1 = p_2 + \frac{1}{2}\rho V_2^2 + \rho g z_2$$
+$$
+p_1 + \frac{1}{2}\rho V_1^2 + \rho g z_1 = p_2 + \frac{1}{2}\rho V_2^2 + \rho g z_2
+$$
 
 **Explicação:** Esta forma expressa a conservação de energia em termos de pressão, sendo útil quando se trabalha diretamente com pressões.
 
 ### 3.2 Tipos de Pressão
 
 #### **Pressão Estática**
-$$p_{estática} = p$$
+$$
+p_{estática} = p
+$$
 
 **Explicação:** É a pressão termodinâmica do fluido, medida por um instrumento que se move com o fluido ou perpendicular ao escoamento.
 
 #### **Pressão Dinâmica**
-$$p_{dinâmica} = \frac{1}{2}\rho V^2$$
+$$
+p_{dinâmica} = \frac{1}{2}\rho V^2
+$$
 
 **Explicação:** Representa a energia cinética por unidade de volume. É a pressão que seria obtida se o fluido fosse desacelerado isentropicamente até velocidade zero.
 
 #### **Pressão de Estagnação (Total)**
-$$p_0 = p + \frac{1}{2}\rho V^2$$
+$$
+p_0 = p + \frac{1}{2}\rho V^2
+$$
 
 **Explicação:** É a soma da pressão estática com a pressão dinâmica. Representa a pressão total que seria medida se o fluido fosse completamente parado.
 
 ### 3.3 Equação da Continuidade
 
 #### **Conservação da Massa (Escoamento Permanente)**
-$$\rho_1 A_1 V_1 = \rho_2 A_2 V_2 = \dot{m}$$
+$$
+\rho_1 A_1 V_1 = \rho_2 A_2 V_2 = \dot{m}
+$$
 
 **Onde:**
 - $A$ = área da seção transversal (m²)
@@ -482,7 +550,9 @@ $$\rho_1 A_1 V_1 = \rho_2 A_2 V_2 = \dot{m}$$
 **Explicação:** Para escoamento permanente, a vazão mássica deve ser constante. Esta equação é frequentemente usada em conjunto com Bernoulli.
 
 #### **Para Fluidos Incompressíveis**
-$$A_1 V_1 = A_2 V_2 = Q$$
+$$
+A_1 V_1 = A_2 V_2 = Q
+$$
 
 **Onde:**
 - $Q$ = vazão volumétrica (m³/s)
@@ -492,7 +562,9 @@ $$A_1 V_1 = A_2 V_2 = Q$$
 ### 3.4 Aplicações da Equação de Bernoulli
 
 #### **Tubo de Pitot**
-$$V = \sqrt{\frac{2(p_0 - p)}{\rho}}$$
+$$
+V = \sqrt{\frac{2(p_0 - p)}{\rho}}
+$$
 
 **Onde:**
 - $p_0$ = pressão de estagnação (Pa)
@@ -501,7 +573,9 @@ $$V = \sqrt{\frac{2(p_0 - p)}{\rho}}$$
 **Explicação:** O tubo de Pitot mede a velocidade do escoamento comparando a pressão de estagnação com a pressão estática.
 
 #### **Tubo de Venturi**
-$$Q = C_d A_2 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}$$
+$$
+Q = C_d A_2 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}
+$$
 
 **Onde:**
 - $C_d$ = coeficiente de descarga (≈ 0,98 para Venturi)
@@ -512,7 +586,9 @@ $$Q = C_d A_2 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}$$
 **Explicação:** O tubo de Venturi mede vazão criando uma restrição controlada que gera uma diferença de pressão proporcional ao quadrado da velocidade.
 
 #### **Placa de Orifício**
-$$Q = C_d A_0 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}$$
+$$
+Q = C_d A_0 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}
+$$
 
 **Onde:**
 - $C_d$ = coeficiente de descarga (≈ 0,6 para placa de orifício)
@@ -521,7 +597,9 @@ $$Q = C_d A_0 \sqrt{\frac{2(p_1 - p_2)}{\rho(1 - \beta^4)}}$$
 **Explicação:** Similar ao Venturi, mas com maior perda de carga devido à separação do escoamento após o orifício.
 
 #### **Escoamento através de Orifício**
-$$V = C_v \sqrt{2gh}$$
+$$
+V = C_v \sqrt{2gh}
+$$
 
 **Onde:**
 - $C_v$ = coeficiente de velocidade (≈ 0,97)
@@ -530,7 +608,9 @@ $$V = C_v \sqrt{2gh}$$
 **Explicação:** Esta é a famosa equação de Torricelli, que relaciona a velocidade de saída de um jato com a altura da coluna de líquido.
 
 #### **Vazão através de Orifício**
-$$Q = C_d A_0 \sqrt{2gh}$$
+$$
+Q = C_d A_0 \sqrt{2gh}
+$$
 
 **Onde:**
 - $C_d$ = coeficiente de descarga (≈ 0,6)
@@ -541,7 +621,9 @@ $$Q = C_d A_0 \sqrt{2gh}$$
 ### 3.5 Limitações da Equação de Bernoulli
 
 #### **Número de Mach para Compressibilidade**
-$$M = \frac{V}{c}$$
+$$
+M = \frac{V}{c}
+$$
 
 **Onde:**
 - $M$ = número de Mach
@@ -551,7 +633,9 @@ $$M = \frac{V}{c}$$
 **Explicação:** Para $M < 0,3$, os efeitos de compressibilidade são desprezíveis e Bernoulli pode ser aplicada. Para $M > 0,3$, correções de compressibilidade são necessárias.
 
 #### **Número de Reynolds para Efeitos Viscosos**
-$$Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}$$
+$$
+Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}
+$$
 
 **Onde:**
 - $Re$ = número de Reynolds
@@ -564,19 +648,25 @@ $$Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}$$
 ### 3.6 Linha de Energia e Linha Piezométrica
 
 #### **Linha de Energia (EGL)**
-$$EGL = \frac{p}{\gamma} + \frac{V^2}{2g} + z$$
+$$
+EGL = \frac{p}{\gamma} + \frac{V^2}{2g} + z
+$$
 
 **Explicação:** Representa graficamente a energia total por unidade de peso ao longo do escoamento. Para fluidos ideais, é horizontal.
 
 #### **Linha Piezométrica (HGL)**
-$$HGL = \frac{p}{\gamma} + z$$
+$$
+HGL = \frac{p}{\gamma} + z
+$$
 
 **Explicação:** Representa a energia de pressão mais a energia potencial por unidade de peso. A diferença entre EGL e HGL é a energia cinética.
 
 ### 3.7 Equação de Bernoulli Modificada (com Perdas)
 
 #### **Bernoulli com Perdas**
-$$\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 + h_L$$
+$$
+\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 + h_L
+$$
 
 **Onde:**
 - $h_L$ = perda de carga (m)
@@ -629,7 +719,9 @@ $\Delta P = \frac{1}{2}\rho U^2 = 0,5 \times 1000 \times 10^2 = 50\,000\,Pa$
 ### 8.1 Classificação do Escoamento
 
 #### **Número de Reynolds**
-$$Re = \frac{\rho V D}{\mu} = \frac{V D}{\nu}$$
+$$
+Re = \frac{\rho V D}{\mu} = \frac{V D}{\nu}
+$$
 
 **Onde:**
 - $Re$ = número de Reynolds
@@ -646,7 +738,9 @@ $$Re = \frac{\rho V D}{\mu} = \frac{V D}{\nu}$$
 ### 8.2 Escoamento Laminar
 
 #### **Perfil de Velocidade (Hagen-Poiseuille)**
-$$u(r) = u_{max}\left(1 - \frac{r^2}{R^2}\right)$$
+$$
+u(r) = u_{max}\left(1 - \frac{r^2}{R^2}\right)
+$$
 
 **Onde:**
 - $u(r)$ = velocidade na posição radial $r$ (m/s)
@@ -656,18 +750,24 @@ $$u(r) = u_{max}\left(1 - \frac{r^2}{R^2}\right)$$
 **Explicação:** O perfil de velocidade laminar é parabólico, com velocidade máxima no centro e zero na parede.
 
 #### **Velocidade Máxima**
-$$u_{max} = \frac{R^2}{4\mu}\left(-\frac{dp}{dx}\right)$$
+$$
+u_{max} = \frac{R^2}{4\mu}\left(-\frac{dp}{dx}\right)
+$$
 
 **Onde:**
 - $\frac{dp}{dx}$ = gradiente de pressão (Pa/m)
 
 #### **Velocidade Média**
-$$V = \frac{u_{max}}{2} = \frac{R^2}{8\mu}\left(-\frac{dp}{dx}\right)$$
+$$
+V = \frac{u_{max}}{2} = \frac{R^2}{8\mu}\left(-\frac{dp}{dx}\right)
+$$
 
 **Explicação:** A velocidade média é metade da velocidade máxima para escoamento laminar.
 
 #### **Equação de Hagen-Poiseuille (Vazão)**
-$$Q = \frac{\pi R^4}{8\mu}\left(-\frac{dp}{dx}\right) = \frac{\pi D^4 \Delta p}{128 \mu L}$$
+$$
+Q = \frac{\pi R^4}{8\mu}\left(-\frac{dp}{dx}\right) = \frac{\pi D^4 \Delta p}{128 \mu L}
+$$
 
 **Onde:**
 - $Q$ = vazão volumétrica (m³/s)
@@ -677,14 +777,18 @@ $$Q = \frac{\pi R^4}{8\mu}\left(-\frac{dp}{dx}\right) = \frac{\pi D^4 \Delta p}{
 **Explicação:** Esta equação fundamental relaciona a vazão com a queda de pressão em escoamento laminar. A vazão é proporcional à quarta potência do diâmetro.
 
 #### **Fator de Atrito Laminar**
-$$f = \frac{64}{Re}$$
+$$
+f = \frac{64}{Re}
+$$
 
 **Explicação:** Para escoamento laminar, o fator de atrito depende apenas do número de Reynolds e pode ser calculado analiticamente.
 
 ### 8.3 Escoamento Turbulento
 
 #### **Perfil de Velocidade (Lei de Potência)**
-$$\frac{u}{u_{max}} = \left(\frac{y}{R}\right)^{1/n}$$
+$$
+\frac{u}{u_{max}} = \left(\frac{y}{R}\right)^{1/n}
+$$
 
 **Onde:**
 - $y$ = distância da parede (m)
@@ -695,15 +799,21 @@ $$\frac{u}{u_{max}} = \left(\frac{y}{R}\right)^{1/n}$$
 #### **Fator de Atrito para Tubos Lisos**
 
 **Equação de Blasius (Re < 10⁵):**
-$$f = \frac{0,316}{Re^{0,25}}$$
+$$
+f = \frac{0,316}{Re^{0,25}}
+$$
 
 **Equação de Prandtl (Re > 10⁵):**
-$$\frac{1}{\sqrt{f}} = 2,0 \log(Re\sqrt{f}) - 0,8$$
+$$
+\frac{1}{\sqrt{f}} = 2,0 \log(Re\sqrt{f}) - 0,8
+$$
 
 **Explicação:** Para escoamento turbulento, o fator de atrito deve ser determinado por correlações empíricas.
 
 #### **Fator de Atrito para Tubos Rugosos (Colebrook-White)**
-$$\frac{1}{\sqrt{f}} = -2,0 \log\left(\frac{\varepsilon/D}{3,7} + \frac{2,51}{Re\sqrt{f}}\right)$$
+$$
+\frac{1}{\sqrt{f}} = -2,0 \log\left(\frac{\varepsilon/D}{3,7} + \frac{2,51}{Re\sqrt{f}}\right)
+$$
 
 **Onde:**
 - $\varepsilon$ = rugosidade absoluta (m)
@@ -714,7 +824,9 @@ $$\frac{1}{\sqrt{f}} = -2,0 \log\left(\frac{\varepsilon/D}{3,7} + \frac{2,51}{Re
 ### 8.4 Perdas de Carga
 
 #### **Equação de Darcy-Weisbach**
-$$h_f = f \frac{L}{D} \frac{V^2}{2g}$$
+$$
+h_f = f \frac{L}{D} \frac{V^2}{2g}
+$$
 
 **Onde:**
 - $h_f$ = perda de carga por atrito (m)
@@ -726,7 +838,9 @@ $$h_f = f \frac{L}{D} \frac{V^2}{2g}$$
 **Explicação:** Esta é a equação fundamental para calcular perdas de carga distribuídas em tubulações. Válida para escoamentos laminar e turbulento.
 
 #### **Perdas Localizadas**
-$$h_L = K \frac{V^2}{2g}$$
+$$
+h_L = K \frac{V^2}{2g}
+$$
 
 **Onde:**
 - $h_L$ = perda localizada (m)
@@ -735,30 +849,46 @@ $$h_L = K \frac{V^2}{2g}$$
 **Explicação:** Perdas em acessórios (válvulas, cotovelos, etc.) são proporcionais à energia cinética.
 
 #### **Perda Total**
-$$h_{total} = h_f + \sum h_L = f \frac{L}{D} \frac{V^2}{2g} + \sum K \frac{V^2}{2g}$$
+$$
+h_{total} = h_f + \sum h_L = f \frac{L}{D} \frac{V^2}{2g} + \sum K \frac{V^2}{2g}
+$$
 
 ### 8.5 Comprimento de Entrada
 
 #### **Comprimento de Entrada Laminar**
-$$\frac{L_e}{D} = 0,06 \, Re$$
+$$
+\frac{L_e}{D} = 0,06 \, Re
+$$
 
 #### **Comprimento de Entrada Turbulento**
-$$\frac{L_e}{D} = 10 \text{ a } 60$$
+$$
+\frac{L_e}{D} = 10 \text{ a } 60
+$$
 
 **Explicação:** O comprimento de entrada é a distância necessária para o perfil de velocidade se desenvolver completamente.
 
 ### 8.6 Análise de Sistemas de Tubulações
 
 #### **Tubulações em Série**
-$$Q_1 = Q_2 = Q_3 = \text{constante}$$
-$$h_{total} = h_1 + h_2 + h_3$$
+$$
+Q_1 = Q_2 = Q_3 = \text{constante}
+$$
+$$
+h_{total} = h_1 + h_2 + h_3
+$$
 
 #### **Tubulações em Paralelo**
-$$Q_{total} = Q_1 + Q_2 + Q_3$$
-$$h_1 = h_2 = h_3$$
+$$
+Q_{total} = Q_1 + Q_2 + Q_3
+$$
+$$
+h_1 = h_2 = h_3
+$$
 
 #### **Equação da Energia para Sistemas**
-$$\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 + h_p = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 + h_L$$
+$$
+\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 + h_p = \frac{p_2}{\gamma} + \frac{V_2^2}{2g} + z_2 + h_L
+$$
 
 **Onde:**
 - $h_p$ = altura manométrica da bomba (m)
@@ -766,14 +896,18 @@ $$\frac{p_1}{\gamma} + \frac{V_1^2}{2g} + z_1 + h_p = \frac{p_2}{\gamma} + \frac
 ### 8.7 Potência de Bombeamento
 
 #### **Potência Hidráulica**
-$$P_{hidráulica} = \gamma Q h_p = \rho g Q h_p$$
+$$
+P_{hidráulica} = \gamma Q h_p = \rho g Q h_p
+$$
 
 **Onde:**
 - $P$ = potência (W)
 - $h_p$ = altura manométrica (m)
 
 #### **Potência no Eixo**
-$$P_{eixo} = \frac{P_{hidráulica}}{\eta}$$
+$$
+P_{eixo} = \frac{P_{hidráulica}}{\eta}
+$$
 
 **Onde:**
 - $\eta$ = eficiência da bomba
@@ -783,7 +917,9 @@ $$P_{eixo} = \frac{P_{hidráulica}}{\eta}$$
 ### 8.8 Medição de Vazão
 
 #### **Rotâmetro**
-$$Q = C_d A_f \sqrt{\frac{2g(\rho_f - \rho)V_f}{\rho}}$$
+$$
+Q = C_d A_f \sqrt{\frac{2g(\rho_f - \rho)V_f}{\rho}}
+$$
 
 **Onde:**
 - $A_f$ = área anular ao redor do flutuador (m²)
@@ -791,7 +927,9 @@ $$Q = C_d A_f \sqrt{\frac{2g(\rho_f - \rho)V_f}{\rho}}$$
 - $V_f$ = volume do flutuador (m³)
 
 #### **Medidor de Vórtice**
-$$f = St \frac{V}{D}$$
+$$
+f = St \frac{V}{D}
+$$
 
 **Onde:**
 - $f$ = frequência de desprendimento de vórtices (Hz)
@@ -1130,9 +1268,11 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
 3. **Resolvendo a Equação:**
    $$
    20.000 = 2(11.772) - 2\gamma_{fm} - 2(14.715)
-   $$  $$
+   $$  
+   $$
    20.000 = 23.544 - 2\gamma_{fm} - 29.430
-   $$  $$
+   $$  
+   $$
    20.000 = -5.886 - 2\gamma_{fm} \implies 2\gamma_{fm} = -25.886
    $$
    Um peso específico negativo é impossível. Isso indica que a diferença de pressão real é $P_A - P_B = 20 \text{ kPa}$, ou seja, $P_B - P_A = -20.000 \text{ Pa}$.
@@ -1140,9 +1280,11 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
 4. **Corrigindo e Resolvendo Novamente:**
    $$
    -20.000 = -5.886 - 2\gamma_{fm}
-   $$  $$
+   $$  
+   $$
    2\gamma_{fm} = 20.000 - 5.886 = 14.114
-   $$  $$
+   $$  
+   $$
    \gamma_{fm} = 7.057 \text{ N/m³}
    $$
 
@@ -1184,9 +1326,11 @@ O peso específico do fluido manométrico é **7.057 N/m³**. Este valor é cons
 3. **Isolando e Resolvendo para h:**
    $$
    h = \frac{P_{ar} + \gamma_{H_2O} \cdot (1,2)}{\gamma_{Hg}}
-   $$  $$
+   $$  
+   $$
    h = \frac{13.800 + 9.810 \cdot (1,2)}{133.416}
-   $$  $$
+   $$  
+   $$
    h = \frac{13.800 + 11.772}{133.416} = \frac{25.572}{133.416} \approx 0,1917 \text{ m}
    $$
 
@@ -1232,7 +1376,8 @@ A leitura diferencial no manômetro é de aproximadamente **0,192 m** ou **19,2 
 3. **Resolvendo para $P_B$:**
    $$
    P_B = 4137 - (25.506 \times 0,1015)
-   $$  $$
+   $$  
+   $$
    P_B = 4137 - 2588,86 = 1548,14 \text{ Pa}
    $$
 
@@ -1274,7 +1419,8 @@ A pressão no tubo B é de aproximadamente **1,55 kPa**. Este valor é consisten
    O manômetro está 1 m abaixo da superfície do líquido.
    $$
    P_{mano, abs} = P_{vapor} + (\gamma_{liquido} \cdot 1 \text{ m})
-   $$  $$
+   $$  
+   $$
    P_{mano, abs} = 120.000 + 7.848 = 127.848 \text{ Pa (abs)}
    $$
 
@@ -1295,9 +1441,11 @@ A pressão no tubo B é de aproximadamente **1,55 kPa**. Este valor é consisten
 5. **Isolando e Resolvendo para h:**
    $$
    h = \frac{P_{vapor} + 2\gamma_{liquido} - P_{atm}}{\gamma_{Hg}}
-   $$  $$
+   $$  
+   $$
    h = \frac{120.000 + 2(7.848) - 101.000}{133.416}
-   $$  $$
+   $$  
+   $$
    h = \frac{34.696}{133.416} \approx 0,260 \text{ m}
    $$
 
@@ -1356,7 +1504,8 @@ A pressão no tubo B é de aproximadamente **1,55 kPa**. Este valor é consisten
 3. **Calcular o Peso (W):**
    $$
    W = A_p \cdot \gamma_{oleo} \cdot \Delta h
-   $$  $$
+   $$  
+   $$
    W = (0,01815) \times (9.270) \times (0,076) \approx 12,78 \text{ N}
    $$
 
@@ -1403,9 +1552,11 @@ O valor do peso necessário é de aproximadamente **12,8 N**.
 4. **Calcular o deslocamento `b`:**
    $$
    b = \frac{\Delta P_B - a(\gamma_{Hg} - \gamma_{oleo})}{\gamma_{Hg} - \gamma_{H_2O}}
-   $$  $$
+   $$  
+   $$
    b = \frac{3.500 - 0,0254 \cdot (133.416 - 7.848)}{133.416 - 9.810}
-   $$  $$
+   $$  
+   $$
    b = \frac{3.500 - 3.189,4}{123.606} = \frac{310,6}{123.606} \approx 0,00251 \text{ m}
    $$
 
@@ -1452,11 +1603,14 @@ A relação entre as áreas $A_1 / A_2$ é de aproximadamente **10,1**.
 3. **Isolando e Resolvendo para $\theta$:**
    $$
    \sin\theta = \frac{\Delta P}{L \cdot (\gamma_{CCl_4} - \gamma_{salina})}
-   $$  $$
+   $$  
+   $$
    \sin\theta = \frac{700}{0,305 \cdot (15.598 - 10.791)}
-   $$  $$
+   $$  
+   $$
    \sin\theta = \frac{700}{0,305 \cdot (4.807)} = \frac{700}{1.466,1} \approx 0,4774
-   $$  $$
+   $$  
+   $$
    \theta = \arcsin(0,4774) \approx 28,5^\circ
    $$
 
@@ -1504,11 +1658,14 @@ O ângulo de inclinação deve ser de aproximadamente **28,5°**. Este valor é 
    Substituímos $b = 3,937a$ na equação de pressão:
    $$
    34.500 = a(\gamma_{Hg} - \gamma_{H_2O}) + (3,937a) \cdot (0,5) \cdot (\gamma_{Hg} + \gamma_{oleo})
-   $$  $$
+   $$  
+   $$
    34.500 = a(133.416 - 9.810) + 1,9685a(133.416 + 8.829)
-   $$  $$
+   $$  
+   $$
    34.500 = a(123.606) + a(280.019) = a(403.625)
-   $$  $$
+   $$  
+   $$
    a = \frac{34.500}{403.625} \approx 0,0855 \text{ m}
    $$
 
