@@ -1727,8 +1727,8 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > $D$: diâmetro  
     > $U$: velocidade média
     """,
-        "resposta": {"$\Delta P$" : 591},
-        "tolerancia": {"$\Delta P$": 20},
+        "resposta": 591,
+        "tolerancia": 20,
         "unidade": "Pa"
     },
 
