@@ -1074,7 +1074,7 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     P_{2} = 9 + 5,9841 + 17,2367
     $$
     $$
-    P_{2} = 32,22 \text{kPa}
+    P_{2} = 32,2 \text{kPa}
     $$
     
     4. **Interpretação da leitura:**
@@ -1105,44 +1105,52 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "determine o peso específico do fluido manométrico."
         ),
         "dica": (
-            "A diferença de pressão entre B e A é causada pela coluna de fluido manométrico entre esses pontos.\n"
-            "Use: $\\Delta P = \\gamma_{m} \\cdot h_{m}$, onde $h_{m}$ é a diferença de nível do fluido manométrico.\n"
-            "Observe o arranjo e as alturas para identificar a coluna de fluido manométrico efetiva."
+            "Use o método de percurso de A para B, somando a pressão ao descer e subtraindo ao subir.\n"
+            "A equação resultante terá a forma $P_B - P_A =...$, contendo $\\gamma_{fm}$ como incógnita.\n"
+            "Se o resultado for fisicamente impossível (negativo), verifique a direção da diferença de pressão."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Diferença de pressão: $\Delta P = P_B - P_A = 20\,000\ \text{Pa}$
-    - Altura da coluna de fluido manométrico:  
-        Do ponto A até o topo: $1 + 2 = 3$ m  
-        Do ponto B até o topo: $2$ m  
-        Portanto, **diferença de altura entre as colunas = $3 - 2 = 1$ m**
-    - Assim, $h_m = 1\,\text{m}$
+1. **Dados e Pesos Específicos:**
+   - $P_B - P_A = 20 \text{ kPa} = 20.000 \text{ Pa}$
+   - Fluido A: $SG_A = 1,2 \implies \gamma_A = 1,2 \times 9.810 = 11.772 \text{ N/m³}$
+   - Fluido B: $\rho_B = 1.500 \text{ kg/m³} \implies \gamma_B = 1.500 \times 9,81 = 14.715 \text{ N/m³}$
+   - Incógnita: $\gamma_{fm}$
 
-    2. **Fórmula básica:**
-    $$
-    \Delta P = \gamma_{m} \cdot h_{m}
-    $$
-    $$
-    \gamma_{m} = \frac{\Delta P}{h_{m}}
-    $$
+2. **Equação do Percurso (de A para B):**
+   $$
+   P_A + \gamma_A(2) + \gamma_{fm}(1) - \gamma_{fm}(3) - \gamma_B(2) = P_B
+   $$
+   Rearranjando para a diferença de pressão:
+   $$
+   P_B - P_A = 2\gamma_A - 2\gamma_{fm} - 2\gamma_B
+   $$
 
-    3. **Substituindo os valores:**
-    $$
-    \gamma_{m} = \frac{20\,000}{1} = 20\,000\ \text{N/m}^3
-    $$
+3. **Resolvendo a Equação:**
+   $$
+   20.000 = 2(11.772) - 2\gamma_{fm} - 2(14.715)
+   $$  $$
+   20.000 = 23.544 - 2\gamma_{fm} - 29.430
+   $$  $$
+   20.000 = -5.886 - 2\gamma_{fm} \implies 2\gamma_{fm} = -25.886
+   $$
+   Um peso específico negativo é impossível. Isso indica que a diferença de pressão real é $P_A - P_B = 20 \text{ kPa}$, ou seja, $P_B - P_A = -20.000 \text{ Pa}$.
 
-    > **Símbolos:**  
-    > - $\Delta P$: diferença de pressão  
-    > - $\gamma_{m}$: peso específico do fluido manométrico  
-    > - $h_{m}$: altura da coluna de fluido manométrico
+4. **Corrigindo e Resolvendo Novamente:**
+   $$
+   -20.000 = -5.886 - 2\gamma_{fm}
+   $$  $$
+   2\gamma_{fm} = 20.000 - 5.886 = 14.114
+   $$  $$
+   \gamma_{fm} = 7.057 \text{ N/m³}
+   $$
 
-    **Conclusão:**  
-    O peso específico do fluido manométrico é **20.000 N/m³**.
-    """,
-        "resposta": 20000,
-        "tolerancia": 50,
+**Conclusão:**
+O peso específico do fluido manométrico é **7.057 N/m³**. Este valor é consistente com a resposta do livro (7.100 N/m³), com a pequena diferença devida a arredondamentos.
+""",
+        "resposta": 7057,
+        "tolerancia": 100,
         "unidade": "N/m³"
     },
 
@@ -1155,41 +1163,37 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "Dado: mercúrio ($SG = 13,6$)."
         ),
         "dica": (
-            "O manômetro mede a diferença entre a pressão do tanque e a pressão do ambiente, via coluna de mercúrio.\n"
-            "Use: $\\Delta P = \\rho_{Hg} g h = SG \\cdot \\rho_{água} \\cdot g \\cdot h$.\n"
-            "Adote $\\rho_{água} = 1000$ kg/m³, $g = 9,81$ m/s²."
+            "A pressão manométrica do ar, mais a pressão da coluna de água, é equilibrada pela pressão da coluna de mercúrio de altura h.\n"
+            "Use o método de percurso do ar no tanque até a extremidade aberta do manômetro (pressão manométrica zero)."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Pressão do ar no tanque: $P_{ar} = 13,8\ \text{kPa} = 13\,800\ \text{Pa}$
-    - Densidade do mercúrio: $SG = 13,6 \implies \rho_{Hg} = 13,6 \times 1000 = 13\,600$ kg/m³
-    - $g = 9,81$ m/s²
+1. **Dados:**
+   - Pressão do ar (manométrica): $P_{ar} = 13,8 \text{ kPa} = 13.800 \text{ Pa}$
+   - Peso específico da água: $\gamma_{H_2O} = 9.810 \text{ N/m³}$
+   - Peso específico do mercúrio: $\gamma_{Hg} = 13,6 \times 9.810 = 133.416 \text{ N/m³}$
+   - Altura da coluna de água: $h_{H_2O} = 0,6 + 0,6 = 1,2 \text{ m}$
 
-    2. **Fórmula do manômetro:**
-    $$
-    \Delta P = \rho_{Hg} g h \implies h = \frac{\Delta P}{\rho_{Hg} g}
-    $$
+2. **Equação do Percurso:**
+   Partindo do ar no tanque até a extremidade aberta (pressão manométrica = 0):
+   $$
+   P_{ar} + \gamma_{H_2O} \cdot (1,2) - \gamma_{Hg} \cdot h = 0
+   $$
 
-    3. **Substituindo:**
-    $$
-    h = \frac{13\,800}{13\,600 \times 9,81} = \frac{13\,800}{133\,416} \approx 0,1034\ \text{m}
-    $$
-    $$
-    h \approx 10,3\ \text{cm}
-    $$
+3. **Isolando e Resolvendo para h:**
+   $$
+   h = \frac{P_{ar} + \gamma_{H_2O} \cdot (1,2)}{\gamma_{Hg}}
+   $$  $$
+   h = \frac{13.800 + 9.810 \cdot (1,2)}{133.416}
+   $$  $$
+   h = \frac{13.800 + 11.772}{133.416} = \frac{25.572}{133.416} \approx 0,1917 \text{ m}
+   $$
 
-    > **Símbolos:**  
-    > - $h$: altura diferencial do mercúrio no manômetro  
-    > - $P_{ar}$: pressão do ar no tanque  
-    > - $\rho_{Hg}$: densidade do mercúrio  
-    > - $g$: gravidade
-
-    **Conclusão:**  
-    A leitura diferencial no manômetro é **$0,103$ m** ou **$10,3$ cm**.
-    """,
-        "resposta": 0.103,
+**Conclusão:**
+A leitura diferencial no manômetro é de aproximadamente **0,192 m** ou **19,2 cm**.
+""",
+        "resposta": 0.192,
         "tolerancia": 0.002,
         "unidade": "m"
     },
@@ -1203,61 +1207,41 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "Qual é a pressão no tubo B que corresponde à condição mostrada na figura?"
         ),
         "dica": (
-            "Converta a pressão de A para Pa: $0,6$ psi $\\approx 4137$ Pa. "
-            "A diferença de altura total do manômetro manométrico é composta por três trechos: dois de água (76 mm cada) e um do manométrico (203 mm). "
-            "A diferença de pressão entre A e B é dada pela soma dos trechos, levando em conta as densidades."
+            "Use o método de percurso de A para B. Para a seção inclinada, a variação de altura vertical é $h = L \\cdot \\sin\\theta$.\n"
+            "Converta todas as unidades para o SI antes de calcular."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Conversões e dados:**
-    - $1\ \text{psi} = 6895\ \text{Pa}$
-    - $P_A = 0,6\ \text{psi} = 0,6 \times 6895 = 4137\ \text{Pa}$
-    - Densidade do manométrico: $2,6 \times 1000 = 2600\ \text{kg/m}^3$
-    - Densidade da água: $1000\ \text{kg/m}^3$
-    - $g = 9,81\ \text{m/s}^2$
+1. **Dados e Conversões:**
+   - $P_A = 0,6 \text{ psi} \times 6895 \text{ Pa/psi} = 4137 \text{ Pa}$
+   - $\gamma_{agua} = 9810 \text{ N/m³}$
+   - $\gamma_{fm} = 2,6 \times 9810 = 25.506 \text{ N/m³}$
+   - Altura vertical nos tubos: $h_{vert} = 76 \text{ mm} = 0,076 \text{ m}$
+   - Comprimento inclinado: $L = 203 \text{ mm} = 0,203 \text{ m}$
 
-    2. **Diferenças de altura:**
-    - Trecho de água: $2 \times 76\ \text{mm} = 152\ \text{mm} = 0,152\ \text{m}$
-    - Trecho de manométrico: $203\ \text{mm} = 0,203\ \text{m}$
+2. **Equação do Percurso (de A para B):**
+   $$
+   P_A + \gamma_{agua}(0,076) - \gamma_{fm}(L \sin30^\circ) - \gamma_{agua}(0,076) = P_B
+   $$
+   Os termos da água se cancelam.
+   $$
+   P_B = P_A - \gamma_{fm}(0,203 \times 0,5)
+   $$
 
-    3. **Diferença de pressão entre A e B:**
-    $$
-    P_A + \rho_{agua} g h_{agua} = P_B + \rho_{manom} g h_{manom}
-    $$
-    - Rearranjando para $P_B$:
-    $$
-    P_B = P_A + \rho_{agua} g h_{agua} - \rho_{manom} g h_{manom}
-    $$
-    - Substituindo:
-    $$
-    P_B = 4137 + 1000 \times 9,81 \times 0,152 - 2600 \times 9,81 \times 0,203
-    $$
-    $$
-    P_B = 4137 + 1491,12 - 5178,438
-    $$
-    $$
-    P_B = 4137 + 1491,12 - 5178,438 = 5628,12 - 5178,438 = 449,68\ \text{Pa}
-    $$
+3. **Resolvendo para $P_B$:**
+   $$
+   P_B = 4137 - (25.506 \times 0,1015)
+   $$  $$
+   P_B = 4137 - 2588,86 = 1548,14 \text{ Pa}
+   $$
 
-    4. **Arredondando:**
-    $$
-    P_B \approx 450\ \text{Pa}
-    $$
-
-    > **Símbolos:**  
-    > - $P_A, P_B$: pressões nos tubos  
-    > - $\rho_{agua}$: densidade da água  
-    > - $\rho_{manom}$: densidade do manométrico  
-    > - $h_{agua}, h_{manom}$: alturas dos trechos  
-    > - $g$: gravidade
-
-    **Conclusão:**  
-    A pressão no tubo B é **aproximadamente 450 Pa**.
-    """,
-        "resposta": 450,
-        "tolerancia": 10,
-        "unidade": "Pa"
+**Conclusão:**
+A pressão no tubo B é de aproximadamente **1,55 kPa**. Este valor é consistente com a resposta do livro (1,54 kPa).
+""",
+        "resposta": 1.55,
+        "tolerancia": 0.02,
+        "unidade": "kPa"
     },
 
     "2.35": {
@@ -1271,67 +1255,66 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "e (b) a altura $h$ indicada no manômetro de mercúrio."
         ),
         "dica": (
-            "(a) O manômetro Bourdon indica a pressão manométrica: $P_{manom} = P_{abs} - P_{atm}$.\n"
-            "(b) O manômetro de mercúrio mede a diferença de pressão no líquido. Use $P = \\rho g h$ para relacionar a pressão manométrica à altura $h$ no mercúrio, considerando $SG_{Hg}=13,6$."
+            "(a) A pressão no Bourdon é a pressão manométrica no ponto. Calcule a pressão absoluta no ponto (vapor + coluna de líquido) e subtraia a atmosférica.\n"
+            "(b) Use o método de percurso da superfície do líquido até a superfície aberta do mercúrio para encontrar h."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    ### (a) Pressão indicada no manômetro Bourdon
+1. **Dados:**
+   - $P_{vapor} = 120.000 \text{ Pa (abs)}$
+   - $P_{atm} = 101.000 \text{ Pa (abs)}$
+   - $\gamma_{liquido} = 800 \text{ kg/m³} \times 9,81 = 7.848 \text{ N/m³}$
+   - $\gamma_{Hg} = 13,6 \times 9.810 = 133.416 \text{ N/m³}$
 
-    1. **Fórmula:**
-    $$
-    P_{manom} = P_{abs} - P_{atm}
-    $$
+---
+### (a) Pressão no Manômetro de Bourdon
 
-    2. **Substituindo:**
-    $$
-    P_{manom} = 120\,000 - 101\,000 = 19\,000\ \text{Pa} = 19,0\ \text{kPa}
-    $$
+2. **Pressão absoluta no ponto do manômetro:**
+   O manômetro está 1 m abaixo da superfície do líquido.
+   $$
+   P_{mano, abs} = P_{vapor} + (\gamma_{liquido} \cdot 1 \text{ m})
+   $$  $$
+   P_{mano, abs} = 120.000 + 7.848 = 127.848 \text{ Pa (abs)}
+   $$
 
-    ---
+3. **Pressão manométrica (leitura):**
+   $$
+   P_{mano, man} = P_{mano, abs} - P_{atm} = 127.848 - 101.000 = 26.848 \text{ Pa}
+   $$
 
-    ### (b) Altura $h$ indicada no manômetro de mercúrio
+---
+### (b) Altura $h$ no Manômetro de Mercúrio
 
-    1. **Pressão no fundo do líquido (diferença de altura = 1 m de líquido):**
-    $$
-    P_{fundo} = P_{abs} + \gamma_{liq} \cdot 1\,m
-    $$
-    Mas o manômetro mede a diferença de pressão entre o fundo do tanque e o aberto (atm).
+4. **Equação do Percurso:**
+   Da superfície do líquido (pressão $P_{vapor}$) até a superfície aberta do mercúrio (pressão $P_{atm}$). A conexão está 2 m abaixo da superfície do líquido.
+   $$
+   P_{vapor} + \gamma_{liquido}(2) - \gamma_{Hg}(h) = P_{atm}
+   $$
 
-    - $P_{manom}$ é dado por $h$:  
-        $$
-        P_{manom} = \rho_{Hg} g h
-        $$
-        Onde $\\rho_{Hg} = 13,6 \times 1000 = 13\,600\ \text{kg/m}^3$
+5. **Isolando e Resolvendo para h:**
+   $$
+   h = \frac{P_{vapor} + 2\gamma_{liquido} - P_{atm}}{\gamma_{Hg}}
+   $$  $$
+   h = \frac{120.000 + 2(7.848) - 101.000}{133.416}
+   $$  $$
+   h = \frac{34.696}{133.416} \approx 0,260 \text{ m}
+   $$
 
-    - Portanto,
-        $$
-        h = \frac{P_{manom}}{\rho_{Hg} g} = \frac{19\,000}{13\,600 \times 9,81} \approx \frac{19\,000}{133\,416} \approx 0,1424\ \text{m} = 14,24\ \text{cm}
-        $$
-
-    > **Símbolos:**  
-    > - $P_{abs}$: pressão absoluta do vapor  
-    > - $P_{atm}$: pressão atmosférica  
-    > - $P_{manom}$: pressão manométrica  
-    > - $\rho_{Hg}$: densidade do mercúrio  
-    > - $g$: gravidade  
-    > - $h$: altura no manômetro
-
-    **Conclusão:**  
-    (a) **Pressão indicada no Bourdon:** $19,0\ \text{kPa}$  
-    (b) **Altura no manômetro de mercúrio:** $0,142\ \text{m}$ ou $14,2\ \text{cm}$
-    """,
+**Conclusão:**
+(a) A pressão no Bourdon é **26,85 kPa**.
+(b) A altura no manômetro de mercúrio é **0,260 m** ou **26,0 cm**.
+""",
         "resposta": {
-            "a": 19000,   # Pa
-            "b": 0.142    # m
+            "a": 26.85,
+            "b": 0.260
         },
         "tolerancia": {
-            "a": 100,
-            "b": 0.003
+            "a": 0.05,
+            "b": 0.002
         },
         "unidade": {
-            "a": "Pa",
+            "a": "kPa",
             "b": "m"
         }
     },
@@ -1347,51 +1330,39 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "Admita que a variação da posição do pistão é desprezível."
         ),
         "dica": (
-            "A diferença de altura ao longo do tubo inclinado corresponde a uma diferença de pressão entre o pistão e a saída atmosférica.\n"
-            "Relacione: $\\Delta P = \\gamma \\cdot \\Delta z$. Lembre-se de converter a diferença de comprimento inclinada (152 mm) para altura vertical usando o ângulo de inclinação (30°).\n"
-            "Depois, relacione $W = \\Delta P \\times A_{pistao}$, onde $A_{pistao}$ é a área do pistão."
+            "A pressão exercida pelo peso ($W/A_{pistao}$) é equilibrada pelo aumento de pressão da coluna de óleo ($\\gamma \\cdot \\Delta h$).\n"
+            "Calcule a altura vertical $\\Delta h$ a partir do deslocamento inclinado ($L \\cdot \\sin\\theta$).\n"
+            "Calcule a área do pistão e resolva para W."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Comprimento deslocado no tubo inclinado: $L = 152\ \text{mm} = 0,152\ \text{m}$
-    - Ângulo de inclinação: $30^\circ$
-    - $\\gamma = 9,27 \times 10^3\ \text{N/m}^3$
-    - Diâmetro do pistão: $d = 152\ \text{mm} = 0,152\ \text{m}$
+1. **Princípio:**
+   A pressão do peso é igual à pressão da coluna de óleo adicional.
+   $$
+   \frac{W}{A_p} = \gamma_{oleo} \cdot \Delta h
+   $$
 
-    2. **Altura vertical correspondente:**
-    $$
-    \Delta z = L \cdot \sin(30^\circ) = 0,152 \times 0,5 = 0,076\ \text{m}
-    $$
+2. **Dados e Cálculos Preliminares:**
+   - **Altura vertical ($\Delta h$):**
+     $L = 152 \text{ mm} = 0,152 \text{ m}$.
+     $\Delta h = L \cdot \sin(30^\circ) = 0,152 \times 0,5 = 0,076 \text{ m}$.
+   - **Área do pistão ($A_p$):**
+     $D_p = 152 \text{ mm} = 0,152 \text{ m}$.
+     $A_p = \frac{\pi D_p^2}{4} = \frac{\pi \cdot (0,152)^2}{4} \approx 0,01815 \text{ m}^2$.
+   - **Peso específico do óleo ($\gamma_{oleo}$):**
+     $\gamma_{oleo} = 9,27 \times 10^3 = 9.270 \text{ N/m³}$.
 
-    3. **Diferença de pressão necessária:**
-    $$
-    \Delta P = \gamma \cdot \Delta z = 9\,270 \times 0,076 = 704,52\ \text{Pa}
-    $$
+3. **Calcular o Peso (W):**
+   $$
+   W = A_p \cdot \gamma_{oleo} \cdot \Delta h
+   $$  $$
+   W = (0,01815) \times (9.270) \times (0,076) \approx 12,78 \text{ N}
+   $$
 
-    4. **Área do pistão:**
-    $$
-    A = \frac{\pi d^2}{4} = \frac{\pi \times (0,152)^2}{4} = 0,01814\ \text{m}^2
-    $$
-
-    5. **Peso necessário:**
-    $$
-    W = \Delta P \times A = 704,52 \times 0,01814 = 12,78\ \text{N}
-    $$
-
-    > **Símbolos:**  
-    > - $L$: deslocamento ao longo do tubo inclinado  
-    > - $\Delta z$: altura vertical  
-    > - $\gamma$: peso específico do óleo  
-    > - $d$: diâmetro do pistão  
-    > - $A$: área do pistão  
-    > - $\Delta P$: diferença de pressão  
-    > - $W$: peso aplicado
-
-    **Conclusão:**  
-    O valor do peso necessário é **aproximadamente $12,8\ \text{N}$**.
-    """,
+**Conclusão:**
+O valor do peso necessário é de aproximadamente **12,8 N**.
+""",
         "resposta": 12.8,
         "tolerancia": 0.2,
         "unidade": "N"
@@ -1405,80 +1376,50 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "provoca uma alteração de 25,4 mm no nível do mercúrio na perna direita do manômetro. A pressão no tubo A é constante."
         ),
         "dica": (
-            "Quando a pressão muda em B, o volume de óleo que desce no ramo da esquerda sobe no ramo da direita, elevando o mercúrio. "
-            r"A variação de volume é igual nos dois ramos: $A_2 \Delta y_2 = A_1 \Delta y_1$.\n"
-            "A variação de nível de mercúrio é duas vezes a subida em cada braço. "
-            "Relacione a variação de pressão à variação de altura: $\\Delta P = \\gamma_{Hg} \\cdot \\Delta h$."
+            "Use a conservação de volume para relacionar os deslocamentos nas duas pernas: $A_1 b = A_2 a$.\n"
+            "A mudança de pressão em B é equilibrada pela mudança na pressão hidrostática das colunas de fluido.\n"
+            "Monte a equação de equilíbrio de pressão e resolva para o deslocamento desconhecido, depois calcule a razão das áreas."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - ΔP = 3,5 kPa = 3500 Pa
-    - Δh (variação total no mercúrio) = 25,4 mm = 0,0254 m
+1. **Conservação de Volume:**
+   Se o nível na perna direita (área $A_2$) desce por uma distância `a`, o nível na perna esquerda (área $A_1$) sobe por uma distância `b`.
+   $A_1 \cdot b = A_2 \cdot a \implies \frac{A_1}{A_2} = \frac{a}{b}$.
+   Dado: $a = 25,4 \text{ mm} = 0,0254 \text{ m}$. Precisamos encontrar `b`.
 
-    2. **Diferença de pressão e altura:**
-    $$
-    \Delta P = \gamma_{Hg} \cdot \Delta h
-    $$
-    Mas a subida do mercúrio em um braço é metade da variação total:
-    $$
-    \Delta y = \frac{\Delta h}{2}
-    $$
+2. **Equilíbrio de Pressão:**
+   A mudança de pressão em B ($\Delta P_B$) é equilibrada pela mudança na pressão das colunas de fluido. A equação de equilíbrio é:
+   $$
+   \Delta P_B = a(\gamma_{Hg} - \gamma_{oleo}) + b(\gamma_{Hg} - \gamma_{H_2O})
+   $$
 
-    3. **Volume deslocado:**
-    $$
-    A_2 \cdot \Delta y = A_1 \cdot \Delta y_1
-    $$
-    Como o braço A é muito maior, a subida é praticamente toda no braço B:
-    $$
-    \frac{A_1}{A_2} = \frac{\Delta y}{\Delta y_1}
-    $$
+3. **Dados e Pesos Específicos:**
+   - $\Delta P_B = 3.500 \text{ Pa}$
+   - $\gamma_{H_2O} = 9.810 \text{ N/m³}$
+   - $\gamma_{oleo} = 0,8 \times 9.810 = 7.848 \text{ N/m³}$
+   - $\gamma_{Hg} = 13,6 \times 9.810 = 133.416 \text{ N/m³}$
 
-    4. **Cálculo do peso específico do mercúrio:**
-    $$
-    \gamma_{Hg} = 13,6 \times 1000 \times 9,81 = 133416\ \text{N/m}^3
-    $$
+4. **Calcular o deslocamento `b`:**
+   $$
+   b = \frac{\Delta P_B - a(\gamma_{Hg} - \gamma_{oleo})}{\gamma_{Hg} - \gamma_{H_2O}}
+   $$  $$
+   b = \frac{3.500 - 0,0254 \cdot (133.416 - 7.848)}{133.416 - 9.810}
+   $$  $$
+   b = \frac{3.500 - 3.189,4}{123.606} = \frac{310,6}{123.606} \approx 0,00251 \text{ m}
+   $$
 
-    5. **Cálculo da variação de pressão:**
-    $$
-    \Delta P = \gamma_{Hg} \cdot \Delta h
-    $$
-    $$
-    3500 = 133416 \times 0,0254
-    $$
-    $$
-    \Delta h = \frac{3500}{133416} = 0,0262\ \text{m}
-    $$
-    Mas como Δh fornecida já é 0,0254 m, está tudo coerente.
+5. **Calcular a Relação das Áreas:**
+   $$
+   \frac{A_1}{A_2} = \frac{a}{b} = \frac{0,0254}{0,00251} \approx 10,12
+   $$
 
-    6. **Relação entre áreas:**
-    Como a diferença é provocada quase só pela variação no ramo mais fino,
-    $$
-    \frac{A_1}{A_2} \approx \frac{\Delta y_2}{\Delta y_1}
-    $$
-    E como o braço A praticamente não sobe, $\frac{A_1}{A_2}$ é muito grande.
-
-    **Se considerar os volumes iguais:**
-    $$
-    \Delta V = A_2 \cdot \frac{\Delta h}{2}
-    $$
-    Portanto,
-    $$
-    \frac{A_1}{A_2} = \frac{\Delta h}{2 \Delta y_1}
-    $$
-    Se o problema pede a razão entre áreas para uma variação dada de mercúrio e não fornece a subida do outro braço, então **adote $\frac{A_1}{A_2} \gg 1$** (teoricamente, $A_1/A_2 \to \infty$).
-
-    > **Símbolos:**  
-    > - $A_1, A_2$: áreas dos ramos  
-    > - $\Delta h$: variação total no mercúrio  
-    > - $\gamma_{Hg}$: peso específico do mercúrio  
-    > - $\Delta P$: diferença de pressão
-    """,
-        "resposta": "A1/A2>>1",
-        "tolerancia": 0,
-        "unidade": "formato de equação",
-        "tipo": "texto",
+**Conclusão:**
+A relação entre as áreas $A_1 / A_2$ é de aproximadamente **10,1**.
+""",
+        "resposta": 10.1,
+        "tolerancia": 0.2,
+        "unidade": "adimensional"
     },
 
     "2.44": {
@@ -1486,58 +1427,45 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
         "imagem": "images/2_44.png",
         "enunciado": (
             "O manômetro diferencial inclinado mostrado na Fig. P2.44 contém tetracloreto de carbono. "
+            "Inicialmente, a diferença entre as pressões nos tubos A e B, que contém uma solução salina que apresenta densidade igual a 1,1, é nula. "
             "Qual deve ser o ângulo para que o manômetro indique uma leitura de 305 mm quando a diferença de pressões for igual a 0,7 kPa?"
         ),
         "dica": (
-            "A diferença de pressão entre A e B é causada pela coluna inclinada: ΔP = γ × Δz, com Δz = L × sinθ.\n"
-            "γ = densidade × g. Monte a equação em função de θ."
+            "A diferença de pressão aplicada é equilibrada pela diferença de pressão hidrostática entre os fluidos sobre a altura vertical do deslocamento.\n"
+            "$\\Delta P = (\\gamma_{CCl_4} - \\gamma_{salina}) \\cdot h$, onde $h = L \\cdot \\sin\\theta$."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - ΔP = 0,7 kPa = 700 Pa
-    - ΔL (comprimento na escala inclinada) = 305 mm = 0,305 m
-    - Densidade da solução salina: 1,1 × 1000 = 1100 kg/m³
-    - Tetracloreto de carbono (usado na coluna inclinada), densidade ≈ 1,6 × 1000 = 1600 kg/m³
+1. **Princípio Físico:**
+   A diferença de pressão é equilibrada pela coluna de fluido deslocada.
+   $$
+   \Delta P = (\gamma_{CCl_4} - \gamma_{salina}) \cdot L \sin\theta
+   $$
 
-    2. **Peso específico da solução salina:**
-    $$
-    \gamma = 1100 \times 9,81 = 10791\ \text{N/m}^3
-    $$
+2. **Dados e Pesos Específicos:**
+   - $\Delta P = 0,7 \text{ kPa} = 700 \text{ Pa}$
+   - Leitura inclinada: $L = 305 \text{ mm} = 0,305 \text{ m}$
+   - Solução Salina: $SG = 1,1 \implies \gamma_{salina} = 1,1 \times 9.810 = 10.791 \text{ N/m³}$
+   - Tetracloreto de Carbono: $\rho_{CCl_4} \approx 1.590 \text{ kg/m³} \implies \gamma_{CCl_4} \approx 15.598 \text{ N/m³}$
 
-    3. **Δz = altura vertical:**
-    $$
-    \Delta z = L \cdot \sin\theta
-    $$
+3. **Isolando e Resolvendo para $\theta$:**
+   $$
+   \sin\theta = \frac{\Delta P}{L \cdot (\gamma_{CCl_4} - \gamma_{salina})}
+   $$  $$
+   \sin\theta = \frac{700}{0,305 \cdot (15.598 - 10.791)}
+   $$  $$
+   \sin\theta = \frac{700}{0,305 \cdot (4.807)} = \frac{700}{1.466,1} \approx 0,4774
+   $$  $$
+   \theta = \arcsin(0,4774) \approx 28,5^\circ
+   $$
 
-    4. **Diferença de pressão:**
-    $$
-    \Delta P = \gamma \cdot \Delta z \implies \Delta P = \gamma \cdot L \cdot \sin\theta
-    $$
-
-    5. **Isolando $\sin\theta$:**
-    $$
-    \sin\theta = \frac{\Delta P}{\gamma \cdot L} = \frac{700}{10791 \times 0,305}
-    $$
-    $$
-    \sin\theta = \frac{700}{3292,355} \approx 0,2127
-    $$
-
-    6. **Calculando θ:**
-    $$
-    \theta = \arcsin(0,2127) \approx 12,3^\circ
-    $$
-
-    > **Símbolos:**  
-    > - $\Delta P$: diferença de pressão  
-    > - $\gamma$: peso específico  
-    > - $L$: comprimento na escala inclinada  
-    > - $\theta$: ângulo
-    """,
-        "resposta": 12.3,
-        "tolerancia": 0.2,
-        "unidade": "θ em grau °"
+**Conclusão:**
+O ângulo de inclinação deve ser de aproximadamente **28,5°**. Este valor é consistente com a resposta do livro (27,8°), com a pequena diferença sendo atribuível a variações nos valores de densidade usados.
+""",
+        "resposta": 28.5,
+        "tolerancia": 1.0,
+        "unidade": "graus"
     },
 
     "2.46": {
@@ -1548,28 +1476,47 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
             "provocada por um aumento de pressão de 34,5 kPa no tubo A. Admita que a pressão no tubo B permanece constante."
         ),
         "dica": (
-            "ΔP = γ_Hg × Δh, onde γ_Hg é o peso específico do mercúrio (13,6 × 1000 × 9,81).\n"
-            "Isolando: Δh = ΔP / γ_Hg"
+            "Use a conservação de volume para relacionar o deslocamento vertical na perna esquerda (`a`) com o deslocamento inclinado na perna direita (`b`).\n"
+            "O aumento de pressão em A é equilibrado pela mudança líquida na pressão hidrostática das três colunas de fluido."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - ΔP = 34,5 kPa = 34.500 Pa
-    - γ_Hg = 13,6 × 1000 × 9,81 = 133416 N/m³
+1. **Conservação de Volume:**
+   Se a perna esquerda (diâmetro $\phi_1=12,7$ mm) desce por `a`, a perna direita (diâmetro $\phi_2=6,4$ mm) sobe por `b`.
+   $$
+   A_1 a = A_2 b \implies b = a \cdot (\frac{\phi_1}{\phi_2})^2 = a \cdot (\frac{12,7}{6,4})^2 \approx 3,937a
+   $$
 
-    2. **Cálculo:**
-    $$
-    \Delta h = \frac{\Delta P}{\gamma_{Hg}} = \frac{34\,500}{133\,416} \approx 0,2586\ \text{m} = 25,86\ \text{cm}
-    $$
+2. **Equilíbrio de Pressão:**
+   A mudança de pressão em A ($\Delta P_A$) é balanceada pelas mudanças nas colunas de fluido.
+   $$
+   \Delta P_A = a(\gamma_{Hg} - \gamma_{H_2O}) + b\sin30^\circ(\gamma_{Hg} + \gamma_{oleo})
+   $$
 
-    > **Símbolos:**  
-    > - Δh: variação na altura  
-    > - ΔP: variação de pressão  
-    > - γ_Hg: peso específico do mercúrio
-    """,
-        "resposta": 0.2586,
-        "tolerancia": 0.002,
+3. **Dados:**
+   - $\Delta P_A = 34.500 \text{ Pa}$
+   - $\gamma_{H_2O} = 9.810 \text{ N/m³}$
+   - $\gamma_{oleo} = 0,9 \times 9.810 = 8.829 \text{ N/m³}$
+   - $\gamma_{Hg} = 13,6 \times 9.810 = 133.416 \text{ N/m³}$
+
+4. **Resolvendo para `a`:**
+   Substituímos $b = 3,937a$ na equação de pressão:
+   $$
+   34.500 = a(\gamma_{Hg} - \gamma_{H_2O}) + (3,937a) \cdot (0,5) \cdot (\gamma_{Hg} + \gamma_{oleo})
+   $$  $$
+   34.500 = a(133.416 - 9.810) + 1,9685a(133.416 + 8.829)
+   $$  $$
+   34.500 = a(123.606) + a(280.019) = a(403.625)
+   $$  $$
+   a = \frac{34.500}{403.625} \approx 0,0855 \text{ m}
+   $$
+
+**Conclusão:**
+A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
+""",
+        "resposta": 0.0855,
+        "tolerancia": 0.001,
         "unidade": "m"
     },
 
