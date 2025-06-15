@@ -461,35 +461,35 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     **Resolução passo a passo:**
 
     1. **Dados:**
-    - Pressão do ar (fechada): $P_{ar} = 1,10$ bar $= 110\,000$ Pa (abs)
-    - Pressão atmosférica: $P_{atm} = 101\,000$ Pa
+    - Pressão do ar (fechada): $P_{ar} = 1,10$ bar $= 1100$ kPa (abs)
+    - Pressão atmosférica: $P_{atm} = 101$ kPa
     - Altura diferencial no U: $h = 1219$ mm $= 1,219$ m
-    - Peso específico da água: $\gamma = \rho \cdot g $ = 999 $\cdot$ 9,81  
-    - Peso específico do manométrico: $\gamma = 14,14$ kN/m³ $= 14\,140$ N/m³
+    - Peso específico da água: $\gamma = 9,81 kN/m³
+    - Peso específico do manométrico: $\gamma = 14,14$ kN/m³ $
 
     2. **Pressão manométrica no tanque:**
     $$
-    P_1 = P_{ar} - P_{atm} = 110\,000 - 101\,000 = 9\,000\ \text{Pa}
+    P_1 = P_{ar} - P_{atm} = 110 - 101 = 9 \text{kPa}
     $$
 
     3. **Diferença de pressão lida pelo manômetro:**
     $$
-    P_{2} = P_{1} + (\gamma_{agua} \cdot h_{agua}) - (\gamma_{2} \cdot h_{2})
+    P_{2} = P_{1} + (\gamma_{agua} \cdot h_{agua}) + (\gamma_{2} \cdot h_{2})
     $$
     $$
-    P_{2} = 9\,000 + (999 \cdot 9,81 \cdot 0,61) - (14\,140 \cdot 1\,219)
+    P_{2} = 9 + (9,81 \cdot 0,61) + (14\,14 \cdot 1\,219)
     $$
     $$
-    P_{2} = 9\,000 + 5\,978,12 - 17\,236\,660
+    P_{2} = 9 + 5,9841 + 17,2367
     $$
     $$
-    P_{2} = -17\,221\,681,88 Pa \approx -172,22 bar
+    P_{2} = 32,22 \text{kPa}
     $$
     
     4. **Interpretação da leitura:**
     - Se a diferença de pressão medida pelo manômetro é maior que a pressão manométrica, a leitura do manômetro não está compatível.
     - Geralmente, pede-se que você **calcule a pressão lida pelo outro manômetro** sabendo a leitura em um, ou vice-versa.
-    - Aqui, basta apresentar o resultado do cálculo do manômetro em U: **-172,22 bar** (leitura do manômetro U).
+    - Aqui, basta apresentar o resultado do cálculo do manômetro em U: **32,22 kPa** (leitura do manômetro U).
 
     > **Símbolos:**  
     > - $P_{ar}$: pressão do ar no tanque  
@@ -499,11 +499,11 @@ A pressão de vapor pode ser desprezada para o mercúrio, mas é importante para
     > - $\Delta P$: diferença de pressão lida
 
     **Conclusão:**  
-    A diferença de pressão lida no manômetro em U é **-172,22 bar**.
+    A diferença de pressão lida no manômetro em U é **32,22 kPa**.
     """,
-        "resposta": -172.22,
+        "resposta": 32,22,
         "tolerancia": 50,
-        "unidade": "bar"
+        "unidade": "kPa"
     },
 
     "2.26": {
