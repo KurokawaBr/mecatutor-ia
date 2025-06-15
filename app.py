@@ -1683,55 +1683,62 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
         "enunciado": (
             "Água escoa na torneira localizada no andar térreo do edifício mostrado na Fig. P3.14 com velocidade máxima de 6,1 m/s. "
             "Determine as velocidades máximas dos escoamentos nas torneiras localizadas no subsolo e no primeiro andar do edifício. "
-            "Admite-se escoamento invíscido e altura de cada andar igual a 3,6 m."
+            "Admita-se escoamento invíscido e altura de cada andar igual a 3,6 m."
         ),
         "dica": (
             "Use a equação de Bernoulli entre os pontos das torneiras. "
-            "Considere que a pressão atmosférica é a mesma nos três pontos, assim o termo de pressão pode ser ignorado."
+            "Como todas as torneiras são jatos livres abertos para a atmosfera, a pressão relativa em cada saída é nula, e o termo de pressão pode ser cancelado."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Velocidade térreo: $U_0 = 6,1\ \mathrm{m/s}$
-    - Diferença de altura por andar: $h = 3,6\ \mathrm{m}$
-    - $g = 9,81\ \mathrm{m/s^2}$
+1. **Princípio Físico:**
+   A relação entre velocidade e altura para um escoamento invíscido é dada pela Equação de Bernoulli. Como todas as torneiras estão abertas para a atmosfera, a pressão em cada saída é a mesma (pressão atmosférica), e os termos de pressão se cancelam. A equação simplifica para:
+   $$
+   \frac{V_1^2}{2g} + z_1 = \frac{V_2^2}{2g} + z_2
+   $$
 
-    2. **Equação de Bernoulli (pressão igual):**
-    $$
-    \frac{U_0^2}{2g} + z_0 = \frac{U_n^2}{2g} + z_n
-    $$
+2. **Dados e Referencial:**
+   - Ponto Térreo (ref): $V_0 = 6,1\ \mathrm{m/s}$, $z_0 = 0\ \mathrm{m}$
+   - Ponto Subsolo: $V_{sub} =?$, $z_{sub} = -3,6\ \mathrm{m}$
+   - Ponto Primeiro Andar: $V_{1} =?$, $z_{1} = +3,6\ \mathrm{m}$
+   - $g = 9,81\ \mathrm{m/s^2}$
 
-    Para o subsolo ($z_n = z_0 - 3,6$ m):
-    $$
-    \frac{U_0^2}{2g} = \frac{U_{sub}^2}{2g} - 3,6
-    $$
-    $$
-    U_{sub}^2 = U_0^2 + 2g \cdot 3,6
-    $$
-    $$
-    U_{sub} = \sqrt{6,1^2 + 2 \cdot 9,81 \cdot 3,6} \approx \sqrt{37,21 + 70,632} \approx \sqrt{107,842} \approx 10,38\ \mathrm{m/s}
-    $$
+3. **Velocidade no Subsolo:**
+   Aplicando Bernoulli entre o térreo e o subsolo:
+   $$
+   \frac{6,1^2}{2g} + 0 = \frac{V_{sub}^2}{2g} - 3,6
+   $$  
+   $$
+   V_{sub}^2 = 6,1^2 + 2g \cdot 3,6 = 37,21 + 2(9,81)(3,6) = 37,21 + 70,632 = 107,842
+   $$  
+   $$
+   V_{sub} = \sqrt{107,842} \approx 10,38\ \mathrm{m/s}
+   $$
 
-    Para o primeiro andar ($z_n = z_0 + 3,6$ m):
-    $$
-    U_{1}^2 = U_0^2 - 2g \cdot 3,6
-    $$
-    $$
-    U_{1} = \sqrt{6,1^2 - 2 \cdot 9,81 \cdot 3,6} \approx \sqrt{37,21 - 70,632}
-    $$
-    Como $37,21 < 70,632$, a velocidade seria nula ou imaginária — **não existe escoamento para cima neste caso**, pois a energia não é suficiente para levar a água ao primeiro andar.
+4. **Velocidade no Primeiro Andar:**
+   Aplicando Bernoulli entre o térreo e o primeiro andar:
+   $$
+   \frac{6,1^2}{2g} + 0 = \frac{V_{1}^2}{2g} + 3,6
+   $$  
+   $$
+   V_{1}^2 = 6,1^2 - 2g \cdot 3,6 = 37,21 - 70,632 = -33,422
+   $$
+   Como o resultado para $V_1^2$ é negativo, é fisicamente impossível haver escoamento. A energia não é suficiente para a água atingir essa altura.
 
-    > **Símbolos:**  
-    > - $U$: velocidade máxima  
-    > - $g$: gravidade  
-    > - $z$: altura do ponto
-    """,
-        "resposta": {"subsolo": 10.38, "primeiro": 0.0},
-        "tolerancia": {"subsolo": 0.1, "primeiro": 0.1},
+**Conclusão:**
+A velocidade no subsolo é **10,4 m/s** e não há escoamento no primeiro andar.
+""",
+        "resposta": {
+            "subsolo": 10.4, 
+            "primeiro": 0.0
+        },
+        "tolerancia": {
+            "subsolo": 0.1, 
+            "primeiro": 0.1
+        },
         "unidade": "m/s"
     },
-
     "3.19": {
         "capitulo": 3,
         "imagem": "images/3_19.png",
@@ -1740,42 +1747,38 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "Determine a vazão volumétrica do escoamento na tubulação."
         ),
         "dica": (
-            r"A velocidade do jato pode ser obtida pela fórmula da energia cinética: $U = \sqrt{2gh}$, onde $h$ é a altura atingida. "
-            r"Depois calcule a área da seção e a vazão $Q = A \cdot U$."
+            r"A energia cinética na saída do jato é convertida em energia potencial na altura máxima. Use $V = \sqrt{2gh}$ para encontrar a velocidade de saída. "
+            r"Depois calcule a área da seção e a vazão $Q = A \cdot V$."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Cálculo da velocidade:**
-    $$
-    U = \sqrt{2gh} = \sqrt{2 \cdot 9,81 \cdot 0,071} \approx \sqrt{1,392} \approx 1,18\,\mathrm{m/s}
-    $$
+1. **Calcular a Velocidade de Saída (V):**
+   A altura máxima (h) que um jato livre atinge está relacionada à sua velocidade de saída (V) pela conversão de energia cinética em potencial: $h = V^2 / (2g)$.
+   $$
+   V = \sqrt{2gh} = \sqrt{2 \cdot 9,81 \cdot 0,071} \approx \sqrt{1,3927} \approx 1,18\,\mathrm{m/s}
+   $$
 
-    2. **Área da tubulação:**
-    $$
-    d = 19\,\mathrm{mm} = 0,019\,\mathrm{m}
-    $$
-    $$
-    A = \frac{\pi d^2}{4} = \frac{\pi \cdot (0,019)^2}{4} \approx 2,835 \times 10^{-4}\,\mathrm{m}^2
-    $$
+2. **Calcular a Área da Tubulação (A):**
+   $$
+   D = 19\,\mathrm{mm} = 0,019\,\mathrm{m}
+   $$  
+   $$
+   A = \frac{\pi D^2}{4} = \frac{\pi \cdot (0,019)^2}{4} \approx 2,835 \times 10^{-4}\,\mathrm{m}^2
+   $$
 
-    3. **Vazão volumétrica:**
-    $$
-    Q = A \cdot U = 2,835 \times 10^{-4} \times 1,18 \approx 3,34 \times 10^{-4}\,\mathrm{m}^3/\mathrm{s}
-    $$
+3. **Calcular a Vazão Volumétrica (Q):**
+   $$
+   Q = A \cdot V = (2,835 \times 10^{-4}) \times 1,18 \approx 3,345 \times 10^{-4}\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    > **Símbolos:**  
-    > - $U$: velocidade  
-    > - $g$: gravidade  
-    > - $h$: altura do jato  
-    > - $A$: área  
-    > - $Q$: vazão volumétrica
-    """,
-        "resposta": 3.34e-4,
+**Conclusão:**
+A vazão em volume do escoamento é de aproximadamente **$3,35 \times 10^{-4}$ m³/s** (ou 0,335 L/s).
+""",
+        "resposta": 3.35e-4,
         "tolerancia": 1e-5,
         "unidade": "m³/s"
     },
-
     "3.25": {
         "capitulo": 3,
         "imagem": "images/3_25.png",
@@ -1785,76 +1788,76 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "determine a pressão no ponto 2 e a vazão volumétrica."
         ),
         "dica": (
-            "Aplique a equação de Bernoulli entre os pontos 1 e 2. "
-            "Use conservação de massa para calcular as velocidades, já que os diâmetros são diferentes."
+            "Primeiro, use Bernoulli entre o ponto 1 e a saída do jato livre (ponto 3) para encontrar a velocidade e a vazão. "
+            "Depois, use Bernoulli entre os pontos 1 e 2 para encontrar a pressão P2."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Diâmetros e alturas:**
-    - $d_1 = 31\,\mathrm{mm} = 0,031\,\mathrm{m}$
-    - $d_2 = 37\,\mathrm{mm} = 0,037\,\mathrm{m}$
-    - $z_1 = 0,92\,\mathrm{m}$
-    - $z_2 = 0,61\,\mathrm{m}$
-    - $P_1 = 0$ (manômetro)
+**Etapa 1: Calcular a Vazão (Q)**
+Aplicamos Bernoulli entre o ponto (1) e a saída do jato livre (3).
 
-    2. **Conservação de massa:**
-    $$
-    Q = A_1 U_1 = A_2 U_2
-    $$
-    $$
-    A_1 = \frac{\pi (0,031)^2}{4} \approx 7,55 \times 10^{-4}\,\mathrm{m}^2
-    $$
-    $$
-    A_2 = \frac{\pi (0,037)^2}{4} \approx 1,075 \times 10^{-3}\,\mathrm{m}^2
-    $$
+1. **Dados e Relações:**
+   - Ponto (1): $P_1 = 0$, $z_1 = 0$, $D_1 = 0,037$ m $\implies A_1 \approx 0,001075$ m²
+   - Ponto (3): $P_3 = 0$, $z_3 = -0,92$ m, $D_3 = 0,031$ m $\implies A_3 \approx 0,000755$ m²
+   - Continuidade: $A_1V_1 = A_3V_3 \implies V_1 = V_3 (A_3/A_1) \approx 0,7026 V_3$
 
-    3. **Velocidade em 1 (jato livre):**
-    - Jato livre na saída: $U_1 = \sqrt{2g(z_1)} = \sqrt{2 \cdot 9,81 \cdot 0,92} \approx \sqrt{18,05} \approx 4,25\,\mathrm{m/s}$
+2. **Bernoulli (1 para 3):**
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_3}{\gamma} + \frac{V_3^2}{2g} + z_3
+   $$  
+   $$
+   0 + \frac{(0,7026 V_3)^2}{2g} + 0 = 0 + \frac{V_3^2}{2g} - 0,92
+   $$  
+   $$
+   0,92 = \frac{V_3^2(1 - 0,7026^2)}{2g} \implies V_3^2 = \frac{0,92 \cdot 19,62}{0,5063} \approx 35,65
+   $$  
+   $$
+   V_3 = \sqrt{35,65} \approx 5,97\,\mathrm{m/s}
+   $$
 
-    4. **Vazão:**
-    $$
-    Q = A_1 U_1 \approx 7,55 \times 10^{-4} \times 4,25 \approx 3,21 \times 10^{-3}\,\mathrm{m}^3/\mathrm{s}
-    $$
+3. **Cálculo da Vazão:**
+   $$
+   Q = A_3 \cdot V_3 = (0,000755) \cdot (5,97) \approx 4,51 \times 10^{-3}\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    5. **Velocidade em 2:**
-    $$
-    U_2 = \frac{Q}{A_2} \approx \frac{3,21 \times 10^{-3}}{1,075 \times 10^{-3}} \approx 2,99\,\mathrm{m/s}
-    $$
+---
+**Etapa 2: Calcular a Pressão em P2**
+Aplicamos Bernoulli entre o ponto (1) e o ponto (2).
 
-    6. **Bernoulli entre 1 e 2:**
-    $$
-    P_1 + \frac{1}{2}\rho U_1^2 + \rho g z_1 = P_2 + \frac{1}{2}\rho U_2^2 + \rho g z_2
-    $$
-    Como $P_1 = 0$:
-    $$
-    P_2 = \frac{1}{2}\rho(U_1^2 - U_2^2) + \rho g (z_1 - z_2)
-    $$
-    Assumindo $\rho = 1000\,\mathrm{kg/m}^3$:
-    $$
-    P_2 = 0,5 \cdot 1000 \cdot (4,25^2 - 2,99^2) + 1000 \cdot 9,81 \cdot (0,92 - 0,61)
-    $$
-    $$
-    = 500 \cdot (18,06 - 8,94) + 1000 \cdot 9,81 \cdot 0,31
-    $$
-    $$
-    = 500 \cdot 9,12 + 3041,1 = 4560 + 3041,1 = 7601,1\,\mathrm{Pa}
-    $$
+1. **Dados e Relações:**
+   - Ponto (1): $P_1 = 0$, $z_1 = 0$
+   - Ponto (2): $P_2 =?$, $z_2 = +0,61$ m
+   - Velocidades: Como o diâmetro é o mesmo, $V_1 = V_2$.
 
-    > **Símbolos:**  
-    > - $Q$: vazão volumétrica  
-    > - $A$: área  
-    > - $U$: velocidade  
-    > - $d$: diâmetro  
-    > - $P$: pressão  
-    > - $z$: altura  
-    > - $\rho$: densidade
-    """,
-        "resposta": {"Q": 3.21e-3, "P2": 7600},
-        "tolerancia": {"Q": 1e-4, "P2": 100},
-        "unidade": {"Q": "m³/s", "P2": "Pa"}
+2. **Bernoulli (1 para 2):**
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_2}{\gamma} + \frac{V_2^2}{2g} + z_2
+   $$
+   Os termos de velocidade se cancelam.
+   $$
+   0 + 0 = \frac{P_2}{\gamma} + 0,61 \implies P_2 = -0,61 \cdot \gamma_{agua}
+   $$  
+   $$
+   P_2 = -0,61 \times 9810 = -5984,1\,\mathrm{Pa}
+   $$
+
+**Conclusão:**
+A vazão é **$4,51 \times 10^{-3}$ m³/s** e a pressão em P2 é **-5,98 kPa**.
+""",
+        "resposta": {
+            "Q": 4.51e-3, 
+            "P2": -5984
+        },
+        "tolerancia": {
+            "Q": 1e-4, 
+            "P2": 10
+        },
+        "unidade": {
+            "Q": "m³/s", 
+            "P2": "Pa"
+        }
     },
-
     "3.30": {
         "capitulo": 3,
         "imagem": "images/3_30.png",
@@ -1864,57 +1867,53 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "no manômetro é constante e igual a 0,2 m."
         ),
         "dica": (
-            "Use conservação de massa ($Q = A_1 U_1 = A_2 U_2$) e a equação de Bernoulli entre as duas seções. "
-            "A diferença de pressão é dada pela altura do manômetro."
+            "Use a equação de Bernoulli entre as duas seções. A diferença de carga de pressão ($P/\\gamma$) é dada pela diferença de altura nos piezômetros (0,2 m). "
+            "Assuma que a velocidade na seção larga é desprezível ($V_1 \\approx 0$)."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Diferença de pressão pelo manômetro:**
-    $$
-    \Delta P = \rho g \Delta h = 1000 \cdot 9{,}81 \cdot 0,2 = 1962\,\mathrm{Pa}
-    $$
+1. **Princípio Físico:**
+   A Equação de Bernoulli entre os pontos (1) e (2) é:
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_2}{\gamma} + \frac{V_2^2}{2g} + z_2
+   $$
 
-    2. **Áreas:**
-    - $A_1 = \frac{\pi (0,1)^2}{4} = 7,85 \times 10^{-3}\,\mathrm{m}^2$
-    - $A_2 = \frac{\pi D^2}{4}$
+2. **Simplificações:**
+   - O tubo é horizontal, então $z_1 = z_2$.
+   - A diferença de carga de pressão é medida pelos piezômetros: $\frac{P_1 - P_2}{\gamma} = 0,2$ m.
+   - A velocidade na seção larga é muito menor que na garganta, então assumimos $V_1 \approx 0$.
 
-    3. **Conservação de massa:**
-    $$
-    Q = A_1 U_1 = A_2 U_2 \\
-    U_1 = Q / A_1, \quad U_2 = Q / A_2
-    $$
+3. **Bernoulli Simplificada:**
+   $$
+   \frac{P_1 - P_2}{\gamma} = \frac{V_2^2}{2g}
+   $$  
+   $$
+   0,2 = \frac{V_2^2}{2g}
+   $$
 
-    4. **Bernoulli entre 1 e 2:**
-    $$
-    \Delta P = \frac{1}{2}\rho (U_2^2 - U_1^2)
-    $$
-    $$
-    1962 = 500 \cdot \left[ \left( \frac{Q}{A_2} \right)^2 - \left( \frac{Q}{A_1} \right)^2 \right ]
-    $$
+4. **Velocidade na Garganta ($V_2$):**
+   $$
+   V_2 = \sqrt{2g \cdot 0,2} = \sqrt{2 \cdot 9,81 \cdot 0,2} = \sqrt{3,924} \approx 1,981\,\mathrm{m/s}
+   $$
 
-    5. **Isolando $Q$:**
-    $$
-    Q^2 \left( \frac{1}{A_2^2} - \frac{1}{A_1^2} \right) = 3,924 \\
-    Q = \sqrt{ \frac{3,924}{ \frac{1}{A_2^2} - \frac{1}{A_1^2} } }
-    $$
-    Onde $A_2 = \frac{\pi D^2}{4}$ e $A_1 = 7,85 \times 10^{-3}\,\mathrm{m}^2$.
+5. **Vazão em Função de D:**
+   A vazão é $Q = A_2 \cdot V_2$. A área $A_2$ é $\frac{\pi D^2}{4}$.
+   $$
+   Q = \left(\frac{\pi D^2}{4}\right) \cdot (1,981) = \left(\frac{1,981 \pi}{4}\right) D^2
+   $$  
+   $$
+   Q \approx 1,556 D^2
+   $$
 
-    > **Símbolos:**  
-    > $Q$: vazão volumétrica  
-    > $A_1, A_2$: áreas das seções  
-    > $D$: diâmetro da contração  
-    > $\rho$: densidade
-    """,
-        "resposta": {
-            "Q": "Q = \\sqrt{\\dfrac{3{,}924}{ \\dfrac{1}{A_2^2} - \\dfrac{1}{A_1^2} }} \\quad\\text{com}\\quad A_2 = \\dfrac{\\pi D^2}{4},\\; A_1 = 7{,}85 \\times 10^{-3}\\,\\mathrm{m}^2"
-        },
-        "tolerancia": {},
-        "unidade": {
-            "Q": "m³/s"
-        }
+**Conclusão:**
+Arredondando o coeficiente, a vazão em função do diâmetro D é **$Q = 1,56 D^2$ m³/s**.
+""",
+        "resposta": "Q = 1.56*D**2",
+        "tolerancia": 0.01,
+        "unidade": "m³/s"
+        "tipo": "texto",
     },
-
     "3.34": {
         "capitulo": 3,
         "imagem": "images/3_34.png",
@@ -1924,50 +1923,47 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "e que $A$ é um ponto de estagnação."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre o topo do reservatório e o ponto A (estagnação). "
-            "Lembre-se de converter todas as pressões para o mesmo sistema de unidades."
+            "A pressão no ponto de estagnação A é a mesma, seja calculada a partir do jato superior ou do inferior. "
+            "Iguale as duas expressões da Equação de Bernoulli para a pressão em A."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados do problema:**
-    - Pressão atmosférica: $P_0 = 1\,atm = 101325\,\mathrm{Pa}$
-    - Pressão em A: $P_1 = 1{,}72\,bar = 172000\,\mathrm{Pa}$
-    - Altura entre o jato livre e o ponto A: $6{,}10\,m$
+1. **Princípio Físico:**
+   No ponto de estagnação A, a velocidade é nula ($V_A = 0$). A pressão nesse ponto ($P_A$) pode ser encontrada a partir de duas trajetórias.
 
-    2. **Aplicando Bernoulli entre o topo do reservatório (nível da água) e o ponto A:**
-    $$
-    P_0 + \rho g h = P_1 + \rho g (6{,}10)
-    $$
+2. **Trajetória 1 (Tanque Superior para A):**
+   Aplicando Bernoulli entre a superfície livre do tanque superior (S) e o ponto A:
+   - $P_S = 0$, $V_S \approx 0$, $z_S = h$ (relativo a A).
+   $$
+   \frac{P_S}{\gamma} + \frac{V_S^2}{2g} + z_S = \frac{P_A}{\gamma} + \frac{V_A^2}{2g} + z_A \implies \frac{P_A}{\gamma} = h
+   $$
 
-    3. **Isolando $h$:**
-    $$
-    \rho g (h - 6{,}10) = P_1 - P_0 \\
-    h = 6{,}10 + \frac{P_1 - P_0}{\rho g}
-    $$
+3. **Trajetória 2 (Tanque Inferior para A):**
+   Aplicando Bernoulli entre a superfície do líquido no tanque inferior (ponto 1) e o ponto A:
+   - $P_1 = 1,72 \text{ bar} = 172.000$ Pa (relativa).
+   - $V_1 \approx 0$.
+   - A altura de (1) relativa a (A) é $z_1 = 2,44 - 6,10 = -3,66$ m.
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_A}{\gamma} + \frac{V_A^2}{2g} + z_A \implies \frac{P_A}{\gamma} = \frac{P_1}{\gamma} + z_1
+   $$
 
-    4. **Substituindo valores:**
-    - $\rho = 1000\,\mathrm{kg/m^3}$ (água)
-    - $g = 9{,}81\,\mathrm{m/s^2}$
+4. **Combinando as Equações:**
+   Igualando as duas expressões para $P_A/\gamma$:
+   $$
+   h = \frac{P_1}{\gamma} + z_1
+   $$  
+   $$
+   h = \frac{172.000}{9810} + (-3,66) = 17,533 - 3,66 \approx 13,87\,\mathrm{m}
+   $$
 
-    $$
-    h = 6{,}10 + \frac{172000 - 101325}{1000 \times 9{,}81}
-    = 6{,}10 + \frac{70675}{9810}
-    = 6{,}10 + 7{,}21 = 13{,}31\,\mathrm{m}
-    $$
-
-    > **Símbolos:**  
-    > $P_0$: pressão atmosférica  
-    > $P_1$: pressão em A  
-    > $h$: altura solicitada  
-    > $\rho$: densidade  
-    > $g$: gravidade
-    """,
-        "resposta": {"h": 13.31},
-        "tolerancia": {"h": 0.02},
-        "unidade": {"h": "m"}
+**Conclusão:**
+A altura $h$ é de aproximadamente **13,9 m**.
+""",
+        "resposta": 13.9,
+        "tolerancia": 0.1,
+        "unidade": "m"
     },
-
     "3.43": {
         "capitulo": 3,
         "imagem": "images/3_43.png",
@@ -1977,42 +1973,42 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "Qual é a vazão em volume do escoamento na mangueira? Admita que os efeitos viscosos são desprezíveis."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre a superfície da água e a saída da mangueira. "
-            "Considere a diferença de alturas para calcular a velocidade de saída."
+            "Use a equação de Bernoulli entre a superfície da água na piscina e a saída da mangueira. "
+            "A diferença de altura total entre os dois pontos determina a velocidade de saída."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Alturas relevantes:**
-    - Superfície da água: $h_1 = 0,20\,\mathrm{m}$
-    - Altura da saída: $h_2 = -0,23\,\mathrm{m}$
-    - Desnível total: $\Delta h = h_1 - h_2 = 0,20 + 0,23 = 0,43\,\mathrm{m}$
+1. **Princípio Físico e Pontos de Análise:**
+   Aplicamos a Equação de Bernoulli entre a superfície da piscina (ponto 1) e a saída da mangueira (ponto 2).
+   - $P_1 = P_2 = 0$ (pressões atmosféricas/relativas).
+   - $V_1 \approx 0$ (superfície de piscina grande).
+   - A diferença de altura total é $\Delta z = z_1 - z_2 = 0,2 - (-0,23) = 0,43$ m.
 
-    2. **Bernoulli (desprezando perdas e velocidade inicial):**
-    $$
-    U_2 = \sqrt{2g\Delta h} = \sqrt{2 \cdot 9{,}81 \cdot 0,43} \approx 2{,}90\,\mathrm{m/s}
-    $$
+2. **Bernoulli Simplificada:**
+   $$
+   z_1 - z_2 = \frac{V_2^2}{2g}
+   $$
 
-    3. **Área da mangueira:**
-    - $d = 15\,\mathrm{mm} = 0,015\,\mathrm{m}$
-    - $A = \frac{\pi d^2}{4} = \frac{\pi \times 0,015^2}{4} \approx 1,77 \times 10^{-4}\,\mathrm{m}^2$
+3. **Calcular a Velocidade de Saída ($V_2$):**
+   $$
+   V_2 = \sqrt{2g(z_1 - z_2)} = \sqrt{2 \cdot 9,81 \cdot 0,43} = \sqrt{8,4366} \approx 2,905\,\mathrm{m/s}
+   $$
 
-    4. **Vazão volumétrica:**
-    $$
-    Q = A \cdot U_2 \approx 1,77 \times 10^{-4} \times 2,90 \approx 5,13 \times 10^{-4}\,\mathrm{m}^3/\mathrm{s}
-    $$
+4. **Calcular a Vazão (Q):**
+   - Diâmetro: $D = 15\,\mathrm{mm} = 0,015\,\mathrm{m}$
+   - Área: $A_2 = \frac{\pi D^2}{4} = \frac{\pi (0,015)^2}{4} \approx 1,767 \times 10^{-4}\,\mathrm{m}^2$
+   $$
+   Q = A_2 \cdot V_2 = (1,767 \times 10^{-4}) \times 2,905 \approx 5,13 \times 10^{-4}\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    > **Símbolos:**  
-    > $Q$: vazão volumétrica  
-    > $U_2$: velocidade de saída  
-    > $A$: área  
-    > $d$: diâmetro interno
-    """,
-        "resposta": {"Q": 5.13e-4},
-        "tolerancia": {"Q": 1e-5},
-        "unidade": {"Q": "m³/s"}
+**Conclusão:**
+A vazão em volume é de aproximadamente **$5,13 \times 10^{-4}$ m³/s** (ou 0,513 L/s).
+""",
+        "resposta": 5.13e-4,
+        "tolerancia": 1e-5,
+        "unidade": "m³/s"
     },
-
     "3.51": {
         "capitulo": 3,
         "imagem": "images/3_51.png",
@@ -2022,54 +2018,58 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "determine a vazão em volume de ar no canal. Calcule, também, a altura $h_2$ e a pressão no ponto 1 do canal."
         ),
         "dica": (
-            "Use conservação de massa e Bernoulli. Para encontrar $h_2$, relacione a velocidade do escoamento com a altura do jato livre."
+            "Interprete o manômetro de água para encontrar as pressões P1 e P2. "
+            "Use Bernoulli e a Continuidade para o ar entre os pontos 1 e 2 para encontrar as velocidades e a vazão."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Áreas:**
-    - $b = 0,06\,\mathrm{m}$
-    - $h_1 = 0,02\,\mathrm{m} \implies A_1 = 0,06 \times 0,02 = 1,2 \times 10^{-3}\,\mathrm{m}^2$
-    - $h_2 = 0,01\,\mathrm{m} \implies A_2 = 0,06 \times 0,01 = 6,0 \times 10^{-4}\,\mathrm{m}^2$
+1. **Interpretar o Manômetro:**
+   - Pressão em (1): $P_1 = \gamma_{agua} \cdot h_1 = 9810 \times 0,04 = 392,4$ Pa.
+   - A diferença de nível da água é 0,10 m. Se o nível em (1) está 0,04 m abaixo, o nível em (2) está 0,06 m acima.
+   - Pressão em (2): $P_2 = -\gamma_{agua} \cdot (\text{altura de sucção}) = -9810 \times 0,06 = -588,6$ Pa.
 
-    2. **Diferença de pressão:**
-    - Coluna de água: $0,05\,\mathrm{m}$
-    $$
-    \Delta P = \rho_{agua} g h = 1000 \times 9,81 \times 0,05 = 490.5\,\mathrm{Pa}
-    $$
+2. **Dados e Relações (para o ar):**
+   - $\Delta P = P_1 - P_2 = 392,4 - (-588,6) = 981$ Pa.
+   - $\gamma_{ar} \approx 12,02$ N/m³.
+   - Áreas: $A_1 = 0,04 \times 0,06 = 0,0024$ m²; $A_2 = 0,02 \times 0,06 = 0,0012$ m².
+   - Continuidade: $V_2 = (A_1/A_2)V_1 = 2V_1$.
 
-    3. **Conservação de massa:**
-    $Q = A_1 U_1 = A_2 U_2 \implies U_2 = \frac{A_1}{A_2} U_1 = 2U_1$
+3. **Bernoulli (1 para 2):**
+   $$
+   \frac{P_1 - P_2}{\gamma_{ar}} = \frac{V_2^2 - V_1^2}{2g} = \frac{(2V_1)^2 - V_1^2}{2g} = \frac{3V_1^2}{2g}
+   $$  
+   $$
+   \frac{981}{12,02} = \frac{3V_1^2}{19,62} \implies V_1^2 = \frac{81,6 \times 19,62}{3} \approx 533,6
+   $$  
+   $$
+   V_1 = \sqrt{533,6} \approx 23,1\,\mathrm{m/s}
+   $$
 
-    4. **Bernoulli:**
-    $$
-    \Delta P = \frac{1}{2}\rho_{ar}(U_2^2 - U_1^2)
-    $$
-    Admitindo $\rho_{ar} = 1,2\,\mathrm{kg/m}^3$:
+4. **Cálculo dos Resultados:**
+   - **Vazão (Q):** $Q = A_1 \cdot V_1 = 0,0024 \times 23,1 \approx 0,0554\,\mathrm{m}^3/\mathrm{s}$.
+   - **Altura ($h_2$):** É a altura de sucção da água no tubo 2, que é **0,06 m**.
+   - **Pressão ($P_1$):** A pressão manométrica em (1) é **392,4 Pa**.
 
-    $$
-    490.5 = 0.6(U_2^2 - U_1^2) \implies U_2^2 - U_1^2 = \frac{490.5}{0.6} = 817.5
-    $$
-    $$
-    (2U_1)^2 - U_1^2 = 4U_1^2 - U_1^2 = 3U_1^2 = 817.5 \implies U_1^2 = 272.5 \implies U_1 \approx 16.51\,\mathrm{m/s}
-    $$
-    $$
-    U_2 = 2U_1 = 33.02\,\mathrm{m/s}
-    $$
-    $$
-    Q = A_1 U_1 = 1.2 \times 10^{-3} \times 16.51 = 0.0198\,\mathrm{m}^3/\mathrm{s}
-    $$
-
-    **Resposta final:**
-    - $Q \approx 0,0198\,\mathrm{m}^3/\mathrm{s}$
-    - $U_1 \approx 16,5\,\mathrm{m/s}$
-    - $U_2 \approx 33,0\,\mathrm{m/s}$
-    """,
-        "resposta": {"Q": 1.98e-2, "U1": 16.5, "U2": 33.0},
-        "tolerancia": {"Q": 1e-4, "U1": 0.1, "U2": 0.1},
-        "unidade": {"Q": "m³/s", "U1": "m/s", "U2": "m/s"}
+**Conclusão:**
+A vazão é $\approx 0,055$ m³/s, a altura $h_2$ é 0,06 m e a pressão $P_1$ é 392,4 Pa.
+""",
+        "resposta": {
+            "Q": 0.0555, 
+            "h2": 0.06, 
+            "P1": 392.4
+        },
+        "tolerancia": {
+            "Q": 0.001, 
+            "h2": 0.001, 
+            "P1": 1
+        },
+        "unidade": {
+            "Q": "m³/s", 
+            "h2": "m", 
+            "P1": "Pa"
+        }
     },
-
     "3.58": {
         "capitulo": 3,
         "imagem": "images/3_58.png",
@@ -2078,56 +2078,49 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "Determine a profundidade da água no tanque $A$, $h_A$."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre a superfície do tanque $A$ e a saída do tanque $B$. "
-            "Considere os jatos livres e as áreas diferentes para calcular as velocidades."
+            "Para regime permanente, a vazão que sai de A é igual à que sai de B. "
+            "Calcule a vazão de saída do tanque B usando a altura $h_B$. "
+            "Use essa vazão para encontrar a altura $h_A$ necessária para produzi-la."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Áreas e conservação de massa:**
-    - $d_A = 0,03\,\mathrm{m} \implies A_A = 7,07 \times 10^{-4}\,\mathrm{m}^2$
-    - $d_B = 0,05\,\mathrm{m} \implies A_B = 1,96 \times 10^{-3}\,\mathrm{m}^2$
-    - $A_A U_A = A_B U_B \implies U_A = \frac{A_B}{A_A} U_B \approx 2,77 U_B$
+**Etapa 1: Calcular a Vazão de Saída do Tanque B (Q)**
+Aplicamos Bernoulli entre a superfície do tanque B (ponto 3) e a saída (ponto 4).
+1. **Velocidade de Saída ($V_4$):**
+   $$
+   V_4 = \sqrt{2gh_B} = \sqrt{2 \cdot 9,81 \cdot 2} \approx 6,26\,\mathrm{m/s}
+   $$
+2. **Cálculo da Vazão (Q):**
+   - Diâmetro $D_4 = 0,05$ m $\implies A_4 = \frac{\pi}{4}(0,05)^2 \approx 0,001963$ m².
+   $$
+   Q = A_4 \cdot V_4 = 0,001963 \times 6,26 \approx 0,0123\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    2. **Bernoulli entre superfície de $A$ e saída de $A$:**
-    $$
-    h_A = \frac{U_A^2}{2g}
-    $$
+---
+**Etapa 2: Calcular a Altura $h_A$**
+A vazão que sai do tanque A deve ser a mesma ($Q = 0,0123$ m³/s). Aplicamos Bernoulli entre a superfície de A (ponto 1) e a saída para B (ponto 2).
+1. **Relação entre $h_A$ e $V_2$:**
+   $$
+   V_2 = \sqrt{2gh_A}
+   $$
+2. **Resolvendo para $h_A$:**
+   - Diâmetro $D_2 = 0,03$ m $\implies A_2 = \frac{\pi}{4}(0,03)^2 \approx 0,000707$ m².
+   - A velocidade $V_2$ necessária é $V_2 = Q/A_2 = 0,0123 / 0,000707 \approx 17,4$ m/s.
+   - Agora, usamos a relação de Bernoulli para encontrar $h_A$:
+   $$
+   h_A = \frac{V_2^2}{2g} = \frac{(17,4)^2}{2 \cdot 9,81} = \frac{302,76}{19,62} \approx 15,43\,\mathrm{m}
+   $$
 
-    3. **Bernoulli entre superfície de $B$ e saída de $B$:**
-    $$
-    h_B = \frac{U_B^2}{2g}
-    $$
-
-    4. **Bernoulli entre superfície de $A$ e saída de $B$:**
-    $$
-    h_A + (z_A - z_B) = \frac{U_B^2}{2g}
-    $$
-    Como $z_A - z_B \approx 0$, pode-se usar a razão das áreas para obter $h_A$ em função de $U_B$:
-    $$
-    h_A = \frac{(2,77 U_B)^2}{2g} = 7,68 \frac{U_B^2}{2g}
-    $$
-
-    Igualando as duas formas para $U_B^2$:
-    $$
-    h_B = \frac{U_B^2}{2g} \implies U_B^2 = 2gh_B
-    $$
-    $$
-    h_A = 7,68 h_B
-    $$
-
-    Se $h_B$ for conhecido ou fornecido, basta multiplicar. Caso contrário, $h_A$ em função de $h_B$ é $h_A = 7,68 h_B$.
-
-    **Resposta final:**
-    $h_A = 7,68 \cdot h_B$
-    """,
-        "resposta": {"hA": "7,68*hB"},
-        "tolerancia": {},
-        "unidade": {"hA": "m"}
+**Conclusão:**
+A profundidade da água no tanque A, $h_A$, é de aproximadamente **15,4 m**.
+""",
+        "resposta": 15.4,
+        "tolerancia": 0.1,
+        "unidade": "m"
     },
-
     "3.68": {
-       "capitulo": 3,
+        "capitulo": 3,
         "imagem": "images/3_68.png",
         "enunciado": (
             "Um combustível, densidade igual a 0,77, escoa no medidor Venturi mostrado na Fig. P3.68. "
@@ -2136,47 +2129,50 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
             "Admita que os efeitos viscosos são desprezíveis."
         ),
         "dica": (
-            "Use Bernoulli entre a entrada e a garganta. "
-            "A diferença de pressão obtida é usada para calcular a altura da coluna no tubo manométrico."
+            "Use Bernoulli entre a seção larga (2) e a garganta (1). "
+            "Calcule a velocidade na garganta com a Equação da Continuidade. "
+            "As cargas de pressão ($P/\\gamma$) são dadas pelas alturas nos tubos abertos."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Densidade do combustível:**  
-    $SG = 0,77 \implies \rho = 770\,\mathrm{kg/m}^3$
+1. **Dados e Velocidades:**
+   - Ponto 2 (largo): $V_2 = 4,6$ m/s, $D_2 = 0,152$ m.
+   - Ponto 1 (garganta): $V_1 =?$, $D_1 = 0,102$ m.
+   - Continuidade: $V_1 = V_2 \cdot (D_2/D_1)^2 = 4,6 \cdot (152/102)^2 \approx 10,21$ m/s.
 
-    2. **Cálculo da diferença de pressão:**
-    - A vazão não é dada, mas se for fornecido o diâmetro da garganta, basta:
-    $$
-    \Delta P = \frac{1}{2} \rho (V_2^2 - V_1^2)
-    $$
-    - Para a elevação $h$ no tubo:
-    $$
-    h = \frac{\Delta P}{\rho g}
-    $$
+2. **Cargas de Pressão e Elevação:**
+   - Carga de pressão em (2): $P_2/\gamma = 1,829$ m.
+   - Carga de pressão em (1): $P_1/\gamma = -h$ (sucção).
+   - Elevação de (2) relativa a (1): $z_2 = (0,203 \text{ m}) \cdot \sin(20^\circ) \approx 0,0694$ m.
+   - Elevação de (1): $z_1 = 0$ (referencial).
 
-    Se $V_2$ for conhecido, substitua diretamente.
+3. **Equação de Bernoulli (de 1 para 2):**
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_2}{\gamma} + \frac{V_2^2}{2g} + z_2
+   $$  
+   $$
+   -h + \frac{(10,21)^2}{2(9,81)} + 0 = 1,829 + \frac{(4,6)^2}{2(9,81)} + 0,0694
+   $$  
+   $$
+   -h + 5,313 = 1,829 + 1,078 + 0,0694
+   $$  
+   $$
+   -h + 5,313 = 2,976
+   $$
 
-    **Resposta simbólica:**  
-    $h = \frac{V_2^2 - V_1^2}{2g}$
+4. **Resolvendo para h:**
+   $$
+   h = 5,313 - 2,976 = 2,337\,\mathrm{m}
+   $$
 
-    **Com $V_1 = 4,6\,\mathrm{m/s}$ e supondo $V_2 = 2V_1$ como exemplo:**
-    $$
-    h = \frac{(2 \cdot 4,6)^2 - (4,6)^2}{2 \cdot 9,81}
-    $$
-    $$
-    h = \frac{(8,4^2 - 4,6^2)}{19,62} = \frac{(70,56 - 21,16)}{19,62} \approx 2,52\,\mathrm{m}
-    $$
-
-    **Resposta final simbólica:**  
-    $h = \frac{V_2^2 - V_1^2}{2g}$  
-    *(Substitua $V_2$ conforme dado real da garganta.)*
-    """,
-        "resposta": {"h": "((V2^2 - V1^2)/(2*9.81))"},
-        "tolerancia": {},
-        "unidade": {"h": "m"}
+**Conclusão:**
+A elevação $h$ no tubo aberto é de aproximadamente **2,34 m**.
+""",
+        "resposta": 2.34,
+        "tolerancia": 0.02,
+        "unidade": "m"
     },
-
     "3.73": {
         "capitulo": 3,
         "imagem": "images/3_73.png",
@@ -2186,70 +2182,39 @@ A variação na altura da coluna esquerda é de aproximadamente **85,5 mm**.
         ),
         "dica": (
             "Aplique a equação de Bernoulli entre as duas seções do Venturi. "
-            "Use a diferença de pressão para calcular a diferença de velocidades e encontre a vazão volumétrica."
+            "Use a diferença de pressão para calcular a velocidade na garganta e, em seguida, a vazão."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $d_1 = 31\,\mathrm{mm} = 0,031\,\mathrm{m}$
-    - $d_2 = 19\,\mathrm{mm} = 0,019\,\mathrm{m}$
-    - $P_1 = 735\,\mathrm{kPa}$
-    - $P_2 = 550\,\mathrm{kPa}$
-    - $\gamma = 9,1\,\mathrm{kN/m}^3 \Rightarrow \rho = \frac{9100}{9,81} \approx 927\,\mathrm{kg/m}^3$
+1. **Dados:**
+   - $P_1 = 735.000$ Pa, $P_2 = 550.000$ Pa $\implies \Delta P = 185.000$ Pa.
+   - $D_1 = 0,031$ m, $D_2 = 0,019$ m.
+   - $\gamma = 9.100$ N/m³.
 
-    2. **Áreas:**
-    $$
-    A_1 = \frac{\pi}{4}d_1^2 \approx 7,55 \times 10^{-4}\,\mathrm{m}^2 \\
-    A_2 = \frac{\pi}{4}d_2^2 \approx 2,84 \times 10^{-4}\,\mathrm{m}^2
-    $$
+2. **Calcular a Velocidade na Garganta ($V_2$):**
+   A fórmula de Bernoulli para um Venturi pode ser rearranjada para:
+   $$
+   V_2 = \sqrt{\frac{2g(P_1 - P_2)/\gamma}{1 - (D_2/D_1)^4}}
+   $$  
+   $$
+   V_2 = \sqrt{\frac{2 \cdot (9,81) \cdot (185.000 / 9.100)}{1 - (19/31)^4}}
+   $$  
+   $$
+   V_2 = \sqrt{\frac{398,87}{1 - 0,1408}} = \sqrt{\frac{398,87}{0,8592}} \approx \sqrt{464,23} \approx 21,55\,\mathrm{m/s}
+   $$
 
-    3. **Conservação de massa:**  
-    $Q = A_1 U_1 = A_2 U_2$
+3. **Calcular a Vazão (Q):**
+   - Área da garganta: $A_2 = \frac{\pi}{4}(0,019)^2 \approx 0,0002835$ m².
+   $$
+   Q = A_2 \cdot V_2 = (0,0002835) \times (21,55) \approx 6,11 \times 10^{-3}\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    4. **Bernoulli entre 1 e 2:**  
-    $P_1 - P_2 = \frac{1}{2}\rho (U_2^2 - U_1^2)$
-
-    Substitua $U_1 = Q/A_1$, $U_2 = Q/A_2$:
-
-    $$
-    (735000 - 550000) = \frac{1}{2}\times 927 \left[ \left(\frac{Q}{2,84 \times 10^{-4}}\right)^2 - \left(\frac{Q}{7,55 \times 10^{-4}}\right)^2 \right]
-    $$
-    $$
-    185000 = 463,5 \left[ \frac{Q^2}{8,07 \times 10^{-8}} - \frac{Q^2}{5,70 \times 10^{-7}} \right]
-    $$
-    $$
-    185000 = 463,5 Q^2 \left( 1,239 \times 10^7 \right)
-    $$
-    $$
-    Q^2 = \frac{185000}{463,5 \times 1,239 \times 10^7} = \frac{185000}{57458650} \approx 0,00322
-    $$
-    $$
-    Q = \sqrt{0,00322} \approx 0,0568\ \mathrm{m}^3/\mathrm{s}
-    $$
-
-    *(Este valor está muito alto, refazendo o passo com as áreas reais)*
-
-    $\frac{1}{A_2^2} - \frac{1}{A_1^2} = \frac{1}{(2,84\times 10^{-4})^2} - \frac{1}{(7,55\times 10^{-4})^2} \approx 12,40\times 10^6$
-
-    $$
-    185000 = 463,5 \times Q^2 \times 12,40 \times 10^6
-    $$
-    $$
-    Q^2 = \frac{185000}{463,5 \times 12,40\times 10^6}
-    $$
-    $$
-    Q^2 = \frac{185000}{5,749 \times 10^9} \approx 3,22\times 10^{-5}
-    $$
-    $$
-    Q \approx 5,67\times 10^{-3}\,\mathrm{m}^3/\mathrm{s}
-    $$
-
-    **Resposta final:**
-    $Q = 5,67 \times 10^{-3}\,\mathrm{m}^3/\mathrm{s}$
-    """,
-        "resposta": {"Q": 5.67e-3},
-        "tolerancia": {"Q": 1e-4},
+**Conclusão:**
+A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
+""",
+        "resposta": 6.11e-3,
+        "tolerancia": 1e-4,
         "unidade": "m³/s"
     },
 
