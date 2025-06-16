@@ -2329,7 +2329,7 @@ O nível no tanque A decai exponencialmente a partir de 0,305 m (acima do nível
             "determine a perda de pressão entre as seções de alimentação e descarga da serpentina."
         ),
         "dica": (
-            "A perda de pressão é $\Delta P = \gamma h_L$. A perda de carga total $h_L$ é a soma das perdas por atrito nos trechos retos e das perdas singulares nas 4 curvas."
+            r"A perda de pressão é $\Delta P = \gamma h_L$. A perda de carga total $h_L$ é a soma das perdas por atrito nos trechos retos e das perdas singulares nas 4 curvas."
         ),
         "resolucao": r"""
 **Resolução passo a passo:**
@@ -2549,7 +2549,7 @@ A altura da coluna de água, representando a carga de energia total no ponto 1, 
         ),
         "dica": (
             "Este problema requer uma solução iterativa. A queda de elevação de 4 m deve ser igual à soma da energia cinética na saída e da perda de carga por atrito no tubo. "
-            "As perdas dependem de 'f', que depende de 'Re' e '$\epsilon/D_h$', que por sua vez dependem das dimensões que você quer encontrar."
+            r"As perdas dependem de 'f', que depende de 'Re' e '$\epsilon/D_h$', que por sua vez dependem das dimensões que você quer encontrar."
         ),
         "resolucao": r"""
 **Resolução passo a passo:**
