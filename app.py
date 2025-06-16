@@ -2224,112 +2224,102 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
         "enunciado": (
             "A Fig. P8.46 mostra que a instalação de um 'redutor de pressão' em chuveiros elétricos pode diminuir o consumo de água e energia. "
             "Admitindo que a pressão no ponto (1) permanece constante e todas as perdas, exceto a causada pelo redutor, sejam desprezadas, "
-            "determine o valor do coeficiente de perda ($K$) para que o redutor de pressão diminua a vazão pela metade."
+            "determine o valor do coeficiente de perda ($K_L$) para que o redutor de pressão diminua a vazão pela metade."
         ),
         "dica": (
-            r"Relacione $Q$ com $\Delta P$ usando a equação de perdas: $\Delta P = K \frac{\rho U^2}{2}$, "
-            "sabendo que ao cortar a vazão pela metade, a velocidade também cai pela metade."
+            "Compare os dois cenários (com e sem arruela) usando a Equação de Energia. A pressão de entrada P1 é a mesma em ambos os casos. "
+            "A perda de carga na arruela é $h_L = K_L V_1'^2 / (2g)$."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Equação de perda de carga local:**
-    $$
-    \Delta P = K \frac{1}{2}\rho U^2
-    $$
+1. **Princípio Físico:**
+   A pressão de entrada $P_1$ é a mesma em ambos os casos. Igualamos a Equação de Energia para o caso sem arruela com a do caso com arruela. Desprezando a gravidade ($z_1=z_2$) e com $P_2=0$ (jato livre):
+   - **Caso 1 (Sem Arruela):** $P_1 = \frac{1}{2}\rho(V_2^2 - V_1^2)$
+   - **Caso 2 (Com Arruela):** $P_1 = \frac{1}{2}\rho(V_2'^2 - V_1'^2) + \frac{1}{2}\rho K_L V_1'^2$
 
-    2. **Relação entre $Q$ e $U$:**
-    - $Q = U A$
-    - Se $Q$ cai pela metade, $U$ cai pela metade.
+2. **Combinando Equações e Relações de Vazão:**
+   Igualando as expressões para $P_1$:
+   $$
+   V_2^2 - V_1^2 = V_2'^2 - V_1'^2 + K_L V_1'^2
+   $$
+   A vazão é reduzida pela metade: $Q' = Q/2$. Como $V=Q/A$, temos $V_1' = V_1/2$ e $V_2' = V_2/2$. Substituindo:
+   $$
+   V_2^2 - V_1^2 = (\frac{V_2}{2})^2 - (\frac{V_1}{2})^2 + K_L (\frac{V_1}{2})^2
+   $$
+   Multiplicando por 4 e isolando $K_L$:
+   $$
+   4V_2^2 - 4V_1^2 = V_2^2 - V_1^2 + K_L V_1^2 \implies K_L = \frac{3(V_2^2 - V_1^2)}{V_1^2} = 3\left[\left(\frac{V_2}{V_1}\right)^2 - 1\right]
+   $$
 
-    3. **Antes do redutor ($Q_1$):**
-    - Sem $K$: $\Delta P_1 = 0$, $Q_1 = Q_0$
-    - Com redutor: $\Delta P_2 = K \frac{1}{2}\rho (U_0/2)^2 = K \frac{1}{2}\rho \frac{U_0^2}{4}$
+3. **Calculando a Razão das Velocidades (e Áreas):**
+   A razão das velocidades é igual à razão das áreas: $V_2/V_1 = A_1/A_2$.
+   - Área do duto ($A_1$): $D_1 = 12,7$ mm $\implies A_1 = \frac{\pi}{4}(0,0127)^2 \approx 1,267 \times 10^{-4}$ m².
+   - Área dos furos ($A_2$): 50 furos com $D_{furo} = 1,3$ mm.
+     $A_2 = 50 \times \left[\frac{\pi}{4}(0,0013)^2\right] \approx 6,637 \times 10^{-5}$ m².
+   - Razão: $\frac{A_1}{A_2} = \frac{1,267 \times 10^{-4}}{6,637 \times 10^{-5}} \approx 1,909$.
 
-    4. **Como a pressão no ponto (1) é constante, o que mudou foi a perda localizada:**
-    - $Q_2 = Q_1 / 2 \implies U_2 = U_1 / 2$
-    - $\Delta P_{redutor} = K \frac{1}{2}\rho \left( \frac{U_1}{2} \right)^2 = K \frac{1}{2}\rho \frac{U_1^2}{4} = \frac{K}{4} \cdot \frac{1}{2}\rho U_1^2$
+4. **Cálculo Final de $K_L$:**
+   $$
+   K_L = 3\left[(1,909)^2 - 1\right] = 3[3,644 - 1] = 3 \times 2,644 \approx 7,93
+   $$
 
-    5. **Para reduzir o fluxo pela metade, toda a queda de pressão deve ocorrer no redutor:**
-    - Igualando as quedas de pressão: $\Delta P_{redutor} = \Delta P_{total, antes}$
-    - Mas antes, $\Delta P = 0$, então a velocidade deve se ajustar para o novo $K$.
-    - Usando a equação do redutor para a condição desejada: $Q_2 = Q_1 / 2 \implies U_2 = U_1 / 2$
-
-    6. **Conclusão:**
-    - Para $K$ suficientemente grande, a velocidade cairá pela metade, pois $\Delta P$ aumentou. Assim, o valor de $K$ é:
-    $$
-    K = 4
-    $$
-
-    > **Símbolos:**  
-    > $K$: coeficiente de perda  
-    > $Q$: vazão volumétrica  
-    > $U$: velocidade média  
-    > $\rho$: densidade
-    """,
-        "resposta": {"K": 4},
-        "tolerancia": {"K": 0.05},
+**Conclusão:**
+O coeficiente de perda necessário é **$K_L = 7,93$**. A resposta de 9,00 no solucionário original se deve a dados de diâmetro ligeiramente diferentes (0,05 pol em vez de 1,3 mm).
+""",
+        "resposta": 7.93,
+        "tolerancia": 0.1,
         "unidade": ""
     },
-
     "8.49": {
         "capitulo": 8,
         "imagem": "images/8_49.png",
         "enunciado": (
             "No instante $t=0$, o nível do tanque A mostrado na Fig. P8.49 está 0,61 m acima daquele do tanque B. "
-            "Faça o gráfico do nível no tanque A em função do tempo até que os tanques se igualem."
+            "Faça o gráfico do nível no tanque A em função do tempo até que os tanques se igualem. Admita que o regime de escoamento é quase permanente e despreze as perdas de carga singulares."
         ),
         "dica": (
-            "Use a equação de continuidade e Bernoulli para obter a vazão em função da diferença de nível. "
-            r"A equação diferencial será $\frac{dh}{dt} = -C \sqrt{h}$."
+            "Verifique se o escoamento é laminar. Relacione a variação da diferença de altura (h) com a velocidade no tubo. "
+            "Resolva a equação diferencial resultante para encontrar h(t) e, consequentemente, o nível em A."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Diferença de altura inicial:** $h_0 = 0,61~\mathrm{m}$
+1. **Verificar o Regime de Escoamento:**
+   Calculamos o número de Reynolds máximo (em t=0, quando a diferença de altura $h_0 = 0,61$ m é máxima). A perda de carga para escoamento laminar é $h_L = \frac{32\mu LV}{\gamma D^2}$.
+   - Igualando à diferença de altura: $h = z_A - z_B = h_L$.
+   - Dados: $L=7,62$ m, $D=0,0025$ m, $\mu \approx 10^{-3}$ Pa·s, $\rho \approx 998$ kg/m³.
+   - $V_{max} = \frac{(\rho g) D^2 h_0}{32\mu L} = \frac{(998 \cdot 9,81)(0,0025)^2(0,61)}{32(10^{-3})(7,62)} \approx 0,153$ m/s.
+   - $Re_{max} = \frac{\rho V_{max} D}{\mu} = \frac{998 \cdot 0,153 \cdot 0,0025}{10^{-3}} \approx 382$.
+   - Como $Re < 2100$, o escoamento é **laminar** durante todo o processo.
 
-    2. **Vazão pelo tubo (desprezando perdas singulares):**
-    - $Q = A_t u = -A_t \frac{dh}{dt}$
-    - Pela equação de Torricelli: $u = \sqrt{2gh}$
+2. **Montar a Equação Diferencial:**
+   A vazão no tubo ($Q = A_{tubo}V$) causa a variação da diferença de altura $h = z_A - z_B$.
+   - $V = \frac{\gamma D^2 h}{32\mu L}$ (da Equação de Energia).
+   - $V = -\frac{1}{2}\left(\frac{D_T}{D}\right)^2\frac{dh}{dt}$ (da Continuidade, onde $D_T$ é o diâmetro do tanque).
+   - Igualando as expressões para V, obtemos uma equação diferencial da forma $\frac{dh}{h} = -\frac{dt}{\alpha}$.
 
-    3. **Montando a equação diferencial:**
-    $$
-    A_t \frac{dh}{dt} = -A_t \sqrt{2gh}
-    $$
-    $$
-    \frac{dh}{dt} = -\sqrt{2g} \sqrt{h}
-    $$
+3. **Solução da Equação:**
+   A solução é um decaimento exponencial: $h(t) = h_0 e^{-t/\alpha}$.
+   O nível no tanque A, medido a partir do nível de equilíbrio final, é $z_A(t) = \frac{h(t)}{2} = \frac{h_0}{2}e^{-t/\alpha}$.
 
-    4. **Separando variáveis e integrando:**
-    $$
-    \int_{h_0}^0 \frac{dh}{\sqrt{h}} = -\sqrt{2g} \int_0^t dt
-    $$
-    $$
-    2\sqrt{h_0} = \sqrt{2g} t
-    $$
-    $$
-    t = \frac{2\sqrt{h_0}}{\sqrt{2g}}
-    $$
-    Substituindo $h_0 = 0,61~\mathrm{m}$ e $g = 9,81~\mathrm{m/s^2}$:
-    $$
-    t = \frac{2\sqrt{0,61}}{\sqrt{2 \cdot 9,81}} \approx \frac{2\times0,781}{4,43} \approx 0,353~\mathrm{s}
-    $$
+4. **Cálculo da Constante de Tempo ($\alpha$) e Equação Final:**
+   $$
+   \alpha = \frac{16\mu L D_T^2}{\gamma D^4} = \frac{16(10^{-3})(7,62)(0,91)^2}{(998 \cdot 9,81)(0,0025)^4} \approx 2,64 \times 10^5 \text{ s}
+   $$
+   A equação para o nível no tanque A (medido a partir do nível de equilíbrio) é:
+   $$
+   z_A(t) = 0,305 \cdot e^{-t / (2,64 \times 10^5)}
+   $$
 
-    5. **Expressão geral para $h$ ao longo do tempo:**
-    $$
-    h(t) = (\sqrt{h_0} - \frac{\sqrt{g/2}}{A_t} t)^2
-    $$
-
-    > **Símbolos:**  
-    > $h(t)$: diferença de nível  
-    > $h_0$: diferença inicial  
-    > $t$: tempo
-    """,
-        "resposta": {"$t_{total}$": 0.353},
-        "tolerancia": {"t_total": 0.01},
-        "unidade": "s"
+**Conclusão:**
+O nível no tanque A decai exponencialmente a partir de 0,305 m (acima do nível final) em direção ao equilíbrio. O gráfico é uma curva de decaimento exponencial.
+""",
+        "resposta": "0.305*exp(-t/2.64e5)",
+        "tolerancia": 0,
+        "unidade": "z_A(t) = () m",
+        "tipo": "texto",
     },
-
     "8.71": {
         "capitulo": 8,
         "imagem": "images/8_71.png",
@@ -2339,59 +2329,50 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             "determine a perda de pressão entre as seções de alimentação e descarga da serpentina."
         ),
         "dica": (
-            "Calcule a velocidade média, depois use Darcy-Weisbach: "
-            r"$\Delta P = f \frac{L}{D} \frac{\rho U^2}{2}$. "
-            "Use a densidade e viscosidade da água a 4°C para estimar o número de Reynolds e obter o fator de atrito."
+            "A perda de pressão é $\Delta P = \gamma h_L$. A perda de carga total $h_L$ é a soma das perdas por atrito nos trechos retos e das perdas singulares nas 4 curvas."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $Q = 5,68 \times 10^{-5}~\mathrm{m}^3/\mathrm{s}$
-    - $D = 0,0127~\mathrm{m}$
-    - Comprimento total $L = 6 \times 0,46 = 2,76~\mathrm{m}$
-    - $\rho = 1000~\mathrm{kg/m}^3$
+1. **Propriedades do Fluido e do Escoamento:**
+   - Fluido: Água a 4°C. $\rho \approx 1000$ kg/m³, $\mu \approx 1,567 \times 10^{-3}$ Pa·s.
+   - Vazão: $Q = 5,68 \times 10^{-5}$ m³/s.
+   - Geometria: $D = 0,0127$ m, $A \approx 1,267 \times 10^{-4}$ m².
+   - Velocidade: $V = Q/A \approx 0,448$ m/s.
+   - Reynolds: $Re = \frac{\rho V D}{\mu} = \frac{1000 \cdot 0,448 \cdot 0,0127}{1,567 \times 10^{-3}} \approx 3630$.
 
-    2. **Área e velocidade média:**
-    $$
-    A = \frac{\pi D^2}{4} = \frac{\pi (0,0127)^2}{4} \approx 1,266 \times 10^{-4}~\mathrm{m}^2
-    $$
-    $$
-    U = \frac{Q}{A} = \frac{5,68 \times 10^{-5}}{1,266 \times 10^{-4}} \approx 0,449~\mathrm{m/s}
-    $$
+2. **Cálculo dos Coeficientes de Perda:**
+   - O escoamento é turbulento.
+   - **Fator de Atrito (f):** Para tubo de cobre extrudado, a rugosidade $\epsilon \approx 0,0015$ mm.
+     $\epsilon/D = 0,0015/12,7 \approx 0,000118$.
+     Com $Re=3630$ e $\epsilon/D=0,000118$, o Diagrama de Moody dá $f \approx 0,0416$.
+   - **Perdas Menores ($\sum K_L$):** O sistema tem 4 curvas de 180° com rosca. O coeficiente $K_L$ para cada uma é 1,5.
+     $\sum K_L = 4 \times 1,5 = 6,0$.
 
-    3. **Número de Reynolds:**
-    $$
-    Re = \frac{U D}{\nu} = \frac{0,449 \times 0,0127}{1,57 \times 10^{-6}} \approx 3,63 \times 10^3
-    $$
+3. **Cálculo da Perda de Carga Total ($h_L$):**
+   - Comprimento total dos trechos retos: $L_{total} = 5 \times 0,46 = 2,3$ m.
+   $$
+   h_L = \left( f \frac{L_{total}}{D} + \sum K_L \right) \frac{V^2}{2g}
+   $$  
+   $$
+   h_L = \left( 0,0416 \frac{2,3}{0,0127} + 6,0 \right) \frac{(0,448)^2}{2 \cdot 9,81}
+   $$  
+   $$
+   h_L = (7,53 + 6,0) \cdot (0,01023) = 13,53 \cdot 0,01023 \approx 0,138 \text{ m}
+   $$
 
-    4. **Fator de atrito (Moody):**  
-    Para $Re = 3630$, $f \approx 0,027$
+4. **Cálculo da Perda de Pressão ($\Delta P$):**
+   $$
+   \Delta P = \gamma \cdot h_L = (1000 \cdot 9,81) \cdot 0,138 \approx 1354 \text{ Pa}
+   $$
 
-    5. **Perda de carga:**
-    $$
-    \Delta P = f \frac{L}{D} \frac{\rho U^2}{2}
-    $$
-    $$
-    \Delta P = 0,027 \times \frac{2,76}{0,0127} \times \frac{1000 \times 0,449^2}{2}
-    $$
-    - $\frac{2,76}{0,0127} \approx 217,3$
-    - $\frac{1000 \times 0,449^2}{2} = 100.8$
-    - $\Delta P \approx 0,027 \times 217,3 \times 100.8 \approx 591~\mathrm{Pa}$
-
-    > **Símbolos:**  
-    > $\Delta P$: perda de pressão  
-    > $Q$: vazão volumétrica  
-    > $f$: fator de atrito  
-    > $L$: comprimento total  
-    > $D$: diâmetro  
-    > $U$: velocidade média
-    """,
-        "resposta": 591,
-        "tolerancia": 20,
+**Conclusão:**
+A perda de pressão na serpentina é de aproximadamente **1,35 kPa**.
+""",
+        "resposta": 1354,
+        "tolerancia": 50,
         "unidade": "Pa"
     },
-
     "8.73": {
         "capitulo": 8,
         "imagem": "images/8_73.png",
@@ -2401,62 +2382,56 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             r"$2,83 \times 10^{-4}~\mathrm{m}^3/\mathrm{s}$. Despreze as perdas de carga singulares."
         ),
         "dica": (
-            "Aplique a equação de energia de Darcy-Weisbach: "
-            r"$h_f = \frac{f L}{D} \frac{U^2}{2g}$ e converta a pressão máxima em altura manométrica. "
-            "Não esqueça de considerar a diferença de altura entre os pontos inicial e final."
+            "Aplique a Equação de Energia entre a saída da bomba (ponto 1) e a saída do bocal (ponto 2). "
+            "A pressão em (1) é a máxima suportada. A perda de carga por atrito ($h_L$) será função do comprimento desconhecido $l$."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Diâmetro interno: $D = 0,0127~\mathrm{m}$
-    - Vazão: $Q = 2,83 \times 10^{-4}~\mathrm{m}^3/\mathrm{s}$
-    - Pressão máxima: $P_{max} = 13,8~\mathrm{bar} = 1,38 \times 10^6~\mathrm{Pa}$
-    - Fator de atrito: $f = 0,022$
-    - Diferença de altura: $\Delta z = 3,05~\mathrm{m} - 0,91~\mathrm{m} = 2,14~\mathrm{m}$
+1. **Dados e Velocidades:**
+   - $P_1 = 13,8 \text{ bar} = 1.380.000$ Pa.
+   - $P_2 = 0$ (jato livre).
+   - $z_1 = 0$ (referencial), $z_2 = 3,05$ m.
+   - $Q = 2,83 \times 10^{-4}$ m³/s.
+   - $f = 0,022$.
+   - Velocidade na mangueira ($V_1$): $D = 0,0127$ m $\implies A_1 \approx 1,267 \times 10^{-4}$ m².
+     $V_1 = Q/A_1 \approx 2,23$ m/s.
+   - Velocidade no bocal ($V_2$): $d = 0,0076$ m $\implies A_2 \approx 4,536 \times 10^{-5}$ m².
+     $V_2 = Q/A_2 \approx 6,24$ m/s.
 
-    2. **Velocidade média:**
-    $$
-    U = \frac{Q}{A} = \frac{2,83 \times 10^{-4}}{\pi (0,0127^2)/4} \approx 2,22~\mathrm{m/s}
-    $$
+2. **Equação de Energia:**
+   $$
+   \frac{P_1}{\gamma} + \frac{V_1^2}{2g} + z_1 = \frac{P_2}{\gamma} + \frac{V_2^2}{2g} + z_2 + h_L
+   $$
+   A perda de carga por atrito é $h_L = f \frac{l}{D} \frac{V_1^2}{2g}$.
 
-    3. **Altura manométrica máxima:**
-    $$
-    h_{max} = \frac{P_{max}}{\gamma} = \frac{1,38 \times 10^6}{1000 \times 9,81} \approx 140,7~\mathrm{m}
-    $$
+3. **Substituindo os Valores e Resolvendo para $l$:**
+   $$
+   \frac{1.380.000}{9810} + \frac{(2,23)^2}{2(9,81)} + 0 = 0 + \frac{(6,24)^2}{2(9,81)} + 3,05 + \left(0,022 \frac{l}{0,0127} \frac{(2,23)^2}{2(9,81)}\right)
+   $$
+   Calculando cada termo:
+   $$
+   140,67 + 0,253 = 1,98 + 3,05 + (1,732 \cdot l \cdot 0,253)
+   $$  
+   $$
+   140,923 = 5,03 + 0,438 l
+   $$
 
-    4. **Equação de energia (Darcy-Weisbach):**
-    $$
-    h_{max} = h_{perda} + \Delta z + \frac{U^2}{2g}
-    $$
-    $$
-    h_{perda} = \frac{fL}{D} \frac{U^2}{2g}
-    $$
-    $$
-    140,7 = \frac{0,022 L}{0,0127} \cdot \frac{(2,22)^2}{2 \cdot 9,81} + 2,14 + \frac{(2,22)^2}{2 \cdot 9,81}
-    $$
+4. **Isolando $l$:**
+   $$
+   0,438 l = 140,923 - 5,03 = 135,893
+   $$  
+   $$
+   l = \frac{135,893}{0,438} \approx 310,2\,\mathrm{m}
+   $$
 
-    5. **Isolando L:**
-    - $\frac{(2,22)^2}{2 \cdot 9,81} \approx 0,251$
-    - $140,7 - 2,14 - 0,251 \approx 138,31$
-    - $\frac{0,022}{0,0127} \approx 1,732$
-    - $\Rightarrow 1,732 L \times 0,251 = 138,31$
-    - $1,732 \times 0,251 \approx 0,4346$
-    - $L = \frac{138,31}{0,4346} \approx 318,3~\mathrm{m}$
-
-    > **Símbolos:**  
-    > $L$: comprimento máximo  
-    > $Q$: vazão volumétrica  
-    > $U$: velocidade média  
-    > $f$: fator de atrito  
-    > $D$: diâmetro  
-    > $h_{max}$: altura manométrica máxima
-    """,
-        "resposta": {"L": 318.3},
-        "tolerancia": {"L": 1},
+**Conclusão:**
+O comprimento máximo permitido para a mangueira é de aproximadamente **310 m**.
+""",
+        "resposta": 310,
+        "tolerancia": 5,
         "unidade": "m"
     },
-
     "8.83": {
         "capitulo": 8,
         "imagem": "images/8_83.png",
@@ -2465,58 +2440,50 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             r"quando a vazão de água no tubo vale $1,42 \times 10^{-2}~\mathrm{m}^3/\mathrm{s}$. Nessas condições, determine o diâmetro deste tubo."
         ),
         "dica": (
-            "Se não há variação de pressão detectável, as perdas por atrito são desprezíveis, indicando que o escoamento é do tipo livre. "
-            r"Assim, utilize $Q = A \cdot U$, e a velocidade pode ser estimada a partir da queda livre pela equação $U = \sqrt{2gz}$ para uma certa altura. "
-            "Como não há informação de altura, considere que a perda de carga é nula e relacione apenas vazão e área do tubo."
+            "A condição de 'sem variação de pressão' em um tubo vertical significa que a perda de carga por atrito ($h_L$) equilibra a variação de elevação ($l$). "
+            "Isso leva a um sistema de equações que deve ser resolvido por tentativa e erro."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Vazão: $Q = 1,42 \times 10^{-2}~\mathrm{m}^3/\mathrm{s}$
+1. **Princípio Físico:**
+   A Equação de Energia para um trecho de tubo de comprimento $l$ é $z_1 - z_2 = h_L$.
+   Como $h_L = f \frac{l}{D} \frac{V^2}{2g}$, temos $l = f \frac{l}{D} \frac{V^2}{2g}$, que simplifica para:
+   $$
+   1 = \frac{f}{D} \frac{V^2}{2g}
+   $$
 
-    2. **Como não há variação de pressão detectável:**
-    - Considera-se escoamento livre, com perda de carga por atrito desprezível.
-    - Usa-se apenas $Q = A U$, mas precisamos de mais um dado para calcular a velocidade média $U$ (normalmente, a altura da coluna d'água). 
-    - Mas, como se trata de tubo vertical e não se detecta pressão (diferença de altura), interpreta-se que a velocidade é suficientemente baixa para não haver perdas significativas.
+2. **Sistema de Equações:**
+   Temos 3 incógnitas ($D, Re, f$) e 3 equações:
+   - Energia: $D^5 = \frac{8fQ^2}{g\pi^2}$
+   - Continuidade: $V = 4Q/(\pi D^2)$
+   - Atrito (Moody/Colebrook): $f = \phi(Re, \epsilon/D)$
 
-    3. **Suposição típica para questões desse tipo:**  
-    - O tubo conduz a água sem diferença de pressão porque está completamente aberto nas extremidades, então podemos usar apenas a relação entre vazão e área, escolhendo uma velocidade média razoável para evitar perdas.
+3. **Solução por Tentativa e Erro:**
+   - Dados: $Q = 1,42 \times 10^{-2}$ m³/s, água a 20°C ($\rho \approx 998$ kg/m³, $\mu \approx 10^{-3}$ Pa·s).
+   - Equações de trabalho: $D^5 = (1,665 \times 10^{-5})f$ e $Re = 18045/D$.
 
-    4. **Expressão da área em função do diâmetro:**
-    $$
-    Q = A \cdot U = \frac{\pi D^2}{4} \cdot U
-    $$
+   **Iteração 1:**
+   - Chute: $f = 0,02$.
+   - Calcular D: $D^5 = (1,665 \times 10^{-5})(0,02) \implies D \approx 0,0508$ m.
+   - Calcular Re: $Re = 18045 / 0,0508 \approx 3,55 \times 10^5$.
+   - Verificar f (para tubo liso): Para $Re = 3,55 \times 10^5$, o Diagrama de Moody dá $f \approx 0,0139$. O chute não foi bom.
 
-    - Como não há informação sobre $U$, uma abordagem é assumir uma velocidade típica para escoamento livre (por exemplo, $U = 2~\mathrm{m/s}$, para evitar regime turbulento elevado).  
-    - No entanto, em provas, normalmente deseja-se apenas a expressão do diâmetro em função de $Q$ e $U$, e pode-se pedir para deixar assim.
+   **Iteração 2:**
+   - Novo chute: $f = 0,014$.
+   - Calcular D: $D^5 = (1,665 \times 10^{-5})(0,014) \implies D \approx 0,0472$ m.
+   - Calcular Re: $Re = 18045 / 0,0472 \approx 3,82 \times 10^5$.
+   - Verificar f: Para $Re = 3,82 \times 10^5$, o Diagrama de Moody dá $f \approx 0,0137$.
 
-    $$
-    D = \sqrt{\frac{4Q}{\pi U}}
-    $$
+   **Análise:** O valor de $f$ calculado (0,0137) é muito próximo do chute (0,014). A solução convergiu.
 
-    - Para fins de resposta, assuma uma velocidade média típica para evitar perdas: $U \approx 2~\mathrm{m/s}$.
-
-    5. **Calculando $D$:**
-    $$
-    D = \sqrt{\frac{4 \times 1,42 \times 10^{-2}}{\pi \times 2}} = \sqrt{\frac{5,68 \times 10^{-2}}{6,2832}} \approx \sqrt{9,045 \times 10^{-3}} \approx 0,095~\mathrm{m}
-    $$
-
-    $$
-    D \approx 95~\mathrm{mm}
-    $$
-
-    > **Símbolos:**  
-    > $Q$: vazão volumétrica  
-    > $D$: diâmetro do tubo  
-    > $U$: velocidade média da água  
-    > $A$: área da seção transversal
-        """,
-        "resposta": {"D": 0.095},
-        "tolerancia": {"D": 0.005},
+**Conclusão:**
+O diâmetro do tubo é de aproximadamente **0,047 m** ou **47 mm**.
+""",
+        "resposta": 0.047,
+        "tolerancia": 0.001,
         "unidade": "m"
     },
-
     "8.86": {
         "capitulo": 8,
         "imagem": "images/8_86.png",
@@ -2526,128 +2493,113 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             "Nestas condições, determine a altura da coluna de água no tubo piezométrico, $h$."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre a superfície livre do reservatório e o ponto do piezômetro, considerando todas as perdas: "
-            r"$z_{reserv} = h + \frac{U^2}{2g} + h_{f_{total}}$. Considere as perdas de carga por atrito e a perda localizada no final do tubo."
+            "Aplique a Equação de Energia entre o ponto (1) do piezômetro e a superfície do tanque (ponto 2). "
+            "A altura 'h' no diagrama representa a carga de energia total ($H_1$), não apenas a pressão estática."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $D = 51~\mathrm{mm} = 0,051~\mathrm{m}$
-    - $U = 4,6~\mathrm{m/s}$
-    - $L_{total} = 2,44 + 2,44 = 4,88~\mathrm{m}$
-    - $\epsilon/D = 0,004$ (rugosidade relativa)
-    - $K = 1,0$ (perda localizada na saída)
-    - $z_{reservatório} = 2,44~\mathrm{m}$
+1. **Interpretação do Problema:**
+   A altura `h` no tubo aberto representa a carga de energia total no ponto (1), $H_1 = \frac{P_1}{\gamma} + \frac{V_1^2}{2g}$. A Equação de Energia entre o ponto (1) e a superfície do tanque (2) é:
+   $$
+   H_1 = H_2 + h_L \implies h = (z_2 + \frac{P_2}{\gamma} + \frac{V_2^2}{2g}) + h_L
+   $$
 
-    2. **Equação de Bernoulli entre a superfície livre e o ponto do piezômetro:**
-    $$
-    z_{reserv} = h + \frac{U^2}{2g} + h_f + h_{local}
-    $$
-    - $h$: altura no piezômetro
-    - $h_f = f \frac{L}{D} \frac{U^2}{2g}$: perda por atrito
-    - $h_{local} = K \frac{U^2}{2g}$
+2. **Análise dos Termos:**
+   - No ponto (2): $P_2 = 0$ (atmosférica), $V_2 \approx 0$ (tanque grande), $z_2 = 2,44$ m.
+   - A equação simplifica para: $h = z_2 + h_L$.
 
-    3. **Encontrando $f$ (coeficiente de atrito):**
-    - Como $Re$ é alto e $\epsilon/D = 0,004$, use a fórmula de Swamee-Jain (ou Colebrook). 
-    - Para fins de exercício, use $f \approx 0,035$ (aproximado para tubos rugosos e velocidades típicas).
+3. **Cálculo da Perda de Carga Total ($h_L$):**
+   A perda de carga entre (1) e (2) é a soma da perda por atrito e da perda singular na entrada do tanque.
+   $$
+   h_L = \left( f \frac{L}{D} + K_L \right) \frac{V_1^2}{2g}
+   $$
+   - **Fator de Atrito (f):**
+     - Dados: $V_1 = 4,6$ m/s, $D = 0,051$ m, $\epsilon/D = 0,004$.
+     - $Re = \frac{V_1 D}{\nu} = \frac{4,6 \cdot 0,051}{1,0 \times 10^{-6}} \approx 2,34 \times 10^5$.
+     - Para $Re = 2,34 \times 10^5$ e $\epsilon/D = 0,004$, o Diagrama de Moody dá $f \approx 0,0288$.
+   - **Cálculo de $h_L$:**
+     - $L = 2,44$ m, $K_L = 1,0$ (descarga em tanque).
+     $$
+     h_L = \left( 0,0288 \frac{2,44}{0,051} + 1,0 \right) \frac{(4,6)^2}{2(9,81)}
+     $$   
+     $$
+     h_L = (1,376 + 1,0) \cdot (1,078) = 2,376 \cdot 1,078 \approx 2,56 \text{ m}
+     $$
 
-    4. **Calculando as perdas:**
-    $$
-    h_f = f \frac{L}{D} \frac{U^2}{2g} = 0,035 \cdot \frac{4,88}{0,051} \cdot \frac{(4,6)^2}{2 \cdot 9,81}
-    $$
-    - $\frac{4,88}{0,051} \approx 95,7$
-    - $\frac{(4,6)^2}{2 \cdot 9,81} \approx \frac{21,16}{19,62} \approx 1,078$
-    - $h_f \approx 0,035 \cdot 95,7 \cdot 1,078 \approx 3,60~\mathrm{m}$
+4. **Cálculo Final da Altura `h`:**
+   $$
+   h = z_2 + h_L = 2,44 \text{ m} + 2,56 \text{ m} = 5,0 \text{ m}
+   $$
 
-    $$
-    h_{local} = 1,0 \cdot 1,078 = 1,078~\mathrm{m}
-    $$
-
-    5. **Aplicando Bernoulli:**
-    $$
-    2,44 = h + 1,078 + 3,60 + 1,078
-    $$
-    $$
-    h = 2,44 - (1,078 + 3,60 + 1,078) = 2,44 - 5,756 = -3,32~\mathrm{m}
-    $$
-
-    - O resultado negativo indica que o piezômetro ficaria abaixo do nível de entrada, mostrando grande perda de energia. Isso pode acontecer se as perdas forem maiores do que a coluna d'água disponível. Ajuste o valor de $f$ se necessário ou revise a interpretação do ponto de medição.
-
-    - O resultado teórico, usando valores típicos, geralmente dá $h$ próximo de zero ou levemente negativo nesse tipo de situação, confirmando que a energia é dissipada principalmente em perdas.
-
-    > **Símbolos:**  
-    > $D$: diâmetro do tubo  
-    > $L$: comprimento total do tubo  
-    > $U$: velocidade média  
-    > $f$: fator de atrito  
-    > $K$: coeficiente de perda localizada  
-    > $h$: altura medida no piezômetro
-        """,
-        "resposta": {"h": -3.3},
-        "tolerancia": {"h": 0.1},
+**Conclusão:**
+A altura da coluna de água, representando a carga de energia total no ponto 1, é de **5,0 m**.
+""",
+        "resposta": 5.0,
+        "tolerancia": 0.1,
         "unidade": "m"
     },
-
     "8.95": {
         "capitulo": 8,
         "imagem": "images/8_95.png",
         "enunciado": (
             "Água da chuva escoa por uma calha de ferro galvanizado. O formato da seção transversal da calha é retangular e "
             "apresenta razão de aspecto 1,7:1 e a calha sempre está cheia de água. Sabendo que a vazão de água é igual a 6 litros/s, "
-            "determine as dimensões da seção transversal da calha."
+            "determine as dimensões da seção transversal da calha. Despreze a velocidade da superfície livre e a perda de carga na curva."
         ),
         "dica": (
-            r"Para escoamento em conduto livre, use $Q = A \cdot U$, onde $A$ é a área da seção retangular. "
-            "A razão de aspecto indica que se $b$ é a base e $h$ a altura, então $b = 1,7h$. "
-            "Considere o regime permanente e calcule a velocidade média a partir da equação de Manning ou Darcy-Weisbach se necessário."
+            "Este problema requer uma solução iterativa. A queda de elevação de 4 m deve ser igual à soma da energia cinética na saída e da perda de carga por atrito no tubo. "
+            "As perdas dependem de 'f', que depende de 'Re' e '$\epsilon/D_h$', que por sua vez dependem das dimensões que você quer encontrar."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - Vazão: $Q = 6~\mathrm{L/s} = 0,006~\mathrm{m}^3/\mathrm{s}$
-    - Razão de aspecto: $b/h = 1,7$
-    - Área da seção: $A = b \cdot h$
+1. **Equação de Energia:**
+   A queda de elevação ($z_1 - z_2 = 4$ m) é igual à perda de carga por atrito mais a energia cinética na saída.
+   $$
+   4 = \frac{V^2}{2g} + f \frac{L}{D_h} \frac{V^2}{2g} = \frac{V^2}{2g}\left(1 + f\frac{L}{D_h}\right)
+   $$
 
-    2. **Expressando as dimensões em função de $h$:**
-    $$
-    b = 1,7h \\
-    A = b \cdot h = 1,7h^2
-    $$
+2. **Equações de Trabalho e Dados:**
+   - $Q = 0,006$ m³/s; $L = 7$ m; $\epsilon = 0,00015$ m (ferro galvanizado).
+   - Geometria: $b = 1,7h$; $A = 1,7h^2$; $D_h \approx 1,259h$.
+   - Continuidade: $V = 0,006 / (1,7h^2)$.
 
-    3. **A equação da vazão:**
-    $$
-    Q = A \cdot U \implies 0,006 = 1,7h^2 \cdot U
-    $$
-    - Como a calha está cheia e a velocidade depende do desnível, mas não foi fornecida, normalmente se usa uma inclinação típica ou deixa em função de $U$.
-    - Se não houver mais dados, pode-se pedir para deixar assim:
-    $$
-    h = \sqrt{\frac{0,006}{1,7U}}
-    $$
-    - Caso se assuma uma velocidade típica de escoamento em calhas ($U \approx 1~\mathrm{m/s}$):
+3. **Solução por Tentativa e Erro:**
+   Vamos iterar adivinhando um valor para `h`.
 
-    $$
-    h = \sqrt{\frac{0,006}{1,7 \cdot 1}} = \sqrt{0,00353} \approx 0,059~\mathrm{m}
-    $$
-    $$
-    b = 1,7 \cdot 0,059 \approx 0,10~\mathrm{m}
-    $$
+   **Tentativa com $h = 0,0315$ m (31,5 mm):**
+   - $A = 1,7 \cdot (0,0315)^2 \approx 0,00168$ m².
+   - $V = 0,006 / 0,00168 \approx 3,57$ m/s.
+   - $D_h = 1,259 \cdot 0,0315 \approx 0,0396$ m.
+   - $Re = \frac{\rho V D_h}{\mu} = \frac{998 \cdot 3,57 \cdot 0,0396}{10^{-3}} \approx 141.000$.
+   - $\epsilon/D_h = 0,00015 / 0,0396 \approx 0,00379$.
+   - Do Diagrama de Moody, para esses valores, $f \approx 0,0285$.
 
-    - Então, as dimensões típicas seriam **altura $h \approx 5,9~\mathrm{cm}$, base $b \approx 10~\mathrm{cm}$**.
+4. **Verificação da Energia:**
+   Calculamos a queda de elevação necessária com os valores encontrados:
+   $$
+   \text{Queda necessária} = \frac{(3,57)^2}{2(9,81)}\left(1 + 0,0285\frac{7}{0,0396}\right)
+   $$ 
+   $$
+   = 0,65(1 + 5,04) \approx 3,93 \text{ m}
+   $$
 
-    > **Símbolos:**  
-    > $Q$: vazão  
-    > $b$: base da seção  
-    > $h$: altura da seção  
-    > $A$: área da seção transversal  
-    > $U$: velocidade média do escoamento
-        """,
-        "resposta": {"h": 0.059, "b": 0.10},
-        "tolerancia": {"h": 0.005, "b": 0.01},
-        "unidade": {"h": "m", "b": "m"}
+**Conclusão:**
+A queda necessária (3,93 m) é muito próxima da queda disponível (4,0 m). A solução convergiu.
+- **Altura (h):** $\approx 0,0315$ m ou **31,5 mm**.
+- **Largura (b):** $1,7 \times 31,5 \approx \textbf{53,6 mm}$.
+""",
+        "resposta": {
+            "h": 0.0315, 
+            "b": 0.0536
+        },
+        "tolerancia": {
+            "h": 0.001, 
+            "b": 0.001
+        },
+        "unidade": "m"
     },
-
     "8.100": {
         "capitulo": 8,
         "imagem": "images/8_100.png",
@@ -2656,90 +2608,56 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             "Despreze todas as perdas localizadas e admita que os coeficientes de atrito são iguais a 0,02 em todos os escoamentos."
         ),
         "dica": (
-            "Quando apenas a válvula entre A e B está aberta, aplique a equação de energia entre os tanques, considerando as perdas por atrito na tubulação. "
-            "Quando a válvula para C está aberta, divida o fluxo entre as duas tubulações e resolva o sistema considerando as alturas e os comprimentos de cada trecho."
+            "Este é um problema de 'três reservatórios'. Use a Equação da Continuidade na junção ($V_1 = V_2 + V_3$) e a Equação de Energia para os trajetos A->B e A->C."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $z_A = 15~\mathrm{m}$, $z_B = z_C = 0~\mathrm{m}$
-    - Comprimentos: $A \rightarrow B$: $80 + 40 = 120~\mathrm{m}$, $A \rightarrow C$: $80 + 75 = 155~\mathrm{m}$
-    - Diâmetro das tubulações: $D = 0,10~\mathrm{m}$
-    - Fator de atrito: $f = 0,02$
+1. **Equações Fundamentais:**
+   - Continuidade (mesmo diâmetro): $V_1 = V_2 + V_3$.
+   - Energia (A para B): $z_A - z_B = f\frac{L_1}{D}\frac{V_1^2}{2g} + f\frac{L_2}{D}\frac{V_2^2}{2g}$.
+   - Energia (A para C): $z_A - z_C = f\frac{L_1}{D}\frac{V_1^2}{2g} + f\frac{L_3}{D}\frac{V_3^2}{2g}$.
 
-    2. **Caso 1: Apenas a válvula entre A e B está aberta**
-    - Perda de carga por atrito: $h_f = f \frac{L}{D} \frac{U^2}{2g}$
-    - Equação de energia entre $A$ e $B$:
-    $$
-    z_A = z_B + h_f + \frac{U^2}{2g}
-    $$
-    - $U = \frac{Q}{A} = \frac{Q}{\pi D^2/4}$
-    - $A = \pi (0,1)^2/4 = 0,00785~\mathrm{m}^2$
+2. **Simplificando o Sistema:**
+   - Dados: $z_A=15$, $z_B=z_C=0$, $L_1=80$, $L_2=40$, $L_3=75$, $D=0,1$, $f=0,02$.
+   - Como a queda de elevação é a mesma para B e C, podemos igualar as equações de energia. Os termos com $V_1$ se cancelam, resultando em:
+   $$
+   L_2 V_2^2 = L_3 V_3^2 \implies 40 V_2^2 = 75 V_3^2 \implies V_2 = \sqrt{75/40} V_3 \approx 1,369 V_3
+   $$
 
-    $$
-    h_f = 0,02 \cdot \frac{120}{0,1} \cdot \frac{U^2}{2g} = 24 \cdot \frac{U^2}{2g}
-    $$
+3. **Resolvendo para as Velocidades:**
+   - Substituindo a relação de $V_2$ na equação da continuidade:
+     $V_1 = 1,369 V_3 + V_3 = 2,369 V_3$.
+   - Agora, substituímos as expressões para $V_1$ e $V_2$ na equação de energia do trajeto A->B:
+   $$
+   15 = \frac{0,02}{0,10 \cdot 2 \cdot 9,81} \left[ 80 V_1^2 + 40 V_2^2 \right]
+   $$ 
+   $$
+   15 = 0,01019 \left[ 80 (2,369 V_3)^2 + 40 (1,369 V_3)^2 \right]
+   $$ 
+   $$
+   15 = 0,01019 \left[ 448,96 V_3^2 + 74,96 V_3^2 \right] = 5,339 V_3^2
+   $$ 
+   $$
+   V_3 = \sqrt{15 / 5,339} \approx 1,676 \text{ m/s}
+   $$ 
+   $$
+   V_2 = 1,369 \cdot 1,676 \approx 2,29 \text{ m/s}
+   $$
 
-    - A soma das perdas:
-    $$
-    15 = h_f + \frac{U^2}{2g} = 24 \cdot \frac{U^2}{2g} + \frac{U^2}{2g} = 25 \cdot \frac{U^2}{2g}
-    $$
-    $$
-    \frac{U^2}{2g} = \frac{15}{25} = 0,6
-    $$
-    $$
-    U^2 = 2g \cdot 0,6 = 2 \cdot 9,81 \cdot 0,6 = 11,772
-    $$
-    $$
-    U = \sqrt{11,772} \approx 3,43~\mathrm{m/s}
-    $$
-    $$
-    Q_B = U \cdot A = 3,43 \cdot 0,00785 \approx 0,0269~\mathrm{m}^3/\mathrm{s}
-    $$
+4. **Cálculo da Vazão para o Tanque B ($Q_2$):**
+   - Área do tubo: $A_2 = \frac{\pi}{4}(0,10)^2 \approx 0,007854$ m².
+   $$
+   Q_2 = A_2 \cdot V_2 = 0,007854 \times 2,29 \approx 0,0180\,\mathrm{m}^3/\mathrm{s}
+   $$
 
-    3. **Caso 2: Válvula para B e C abertas**
-    - As vazões se dividem: $Q_A = Q_B + Q_C$
-    - Perdas: 
-        - $A \rightarrow B$: $L_1 = 120~\mathrm{m}$
-        - $A \rightarrow C$: $L_2 = 80 + 75 = 155~\mathrm{m}$
-
-    - Para ambos os caminhos, a perda de carga total deve ser igual ($\Delta z = h_f + \frac{U^2}{2g}$):
-
-    $$
-    15 = 0,02 \frac{120}{0,1} \frac{U_B^2}{2g} + \frac{U_B^2}{2g} = 25 \frac{U_B^2}{2g}
-    $$
-    $$
-    15 = 0,02 \frac{155}{0,1} \frac{U_C^2}{2g} + \frac{U_C^2}{2g} = 32 \frac{U_C^2}{2g}
-    $$
-
-    - Calculando $U_B$:
-    $$
-    \frac{U_B^2}{2g} = \frac{15}{25} = 0,6 \implies U_B = \sqrt{2g \cdot 0,6} \approx 3,43~\mathrm{m/s}
-    $$
-    - Calculando $U_C$:
-    $$
-    \frac{U_C^2}{2g} = \frac{15}{32} = 0,469 \implies U_C = \sqrt{2g \cdot 0,469} \approx 3,04~\mathrm{m/s}
-    $$
-    - Calculando vazões:
-        - $Q_B = U_B \cdot A = 3,43 \cdot 0,00785 = 0,0269~\mathrm{m}^3/\mathrm{s}$
-        - $Q_C = U_C \cdot A = 3,04 \cdot 0,00785 = 0,0239~\mathrm{m}^3/\mathrm{s}$
-        - $Q_{total} = Q_B + Q_C = 0,0269 + 0,0239 = 0,0508~\mathrm{m}^3/\mathrm{s}$
-
-    > **Símbolos:**  
-    > $Q_B$: vazão para o tanque $B$  
-    > $Q_C$: vazão para o tanque $C$  
-    > $U_B, U_C$: velocidade média nos respectivos trechos  
-    > $f$: fator de atrito  
-    > $D$: diâmetro do tubo  
-    > $A$: área da seção  
-    > $L$: comprimento do tubo
-        """,
-        "resposta": {"$Q_B$": 0.0269, "$Q_C$": 0.0239, "$Q_{total}$": 0.0508},
-        "tolerancia": {"Q_B": 0.001, "Q_C": 0.001, "Q_total": 0.002},
-        "unidade": {"$Q_B$": "m^3/s", "$Q_C$": "m^3/s", "$Q_{total}$": "m^3/s"}
+**Conclusão:**
+A vazão para o tanque B é de **0,018 m³/s**.
+""",
+        "resposta": 0.018,
+        "tolerancia": 0.0002,
+        "unidade": "m³/s"
     },
-
     "8.109": {
         "capitulo": 8,
         "imagem": "images/8_109.png",
@@ -2750,85 +2668,42 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             "d'água, determine a vazão de água no tubo."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre as seções 1 (tubo maior) e 2 (seção do bocal). "
-            r"Considere a continuidade ($Q = U_1 A_1 = U_2 A_2$) e use a diferença de pressão indicada pelo manômetro para "
-            r"calcular a velocidade na seção do bocal. Despreze perdas e considere $\Delta z \approx 0$."
+            "Este problema requer uma solução iterativa. Assuma um coeficiente de descarga $C_n$, calcule a vazão, o número de Reynolds, e verifique se o $C_n$ corresponde ao Re encontrado."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $d_1 = 96,5~\mathrm{mm} = 0,0965~\mathrm{m}$
-    - $d_2 = 63,5~\mathrm{mm} = 0,0635~\mathrm{m}$
-    - $\Delta h = 945~\mathrm{mm} = 0,945~\mathrm{m}$
-    - Temperatura da água: $71^\circ$C (mas considere $\rho \approx 978~\mathrm{kg/m^3}$)
+1. **Dados e Propriedades:**
+   - Geometria: $D = 0,0965$ m, $d = 0,0635$ m, $\beta = d/D \approx 0,658$.
+   - Manômetro: A leitura de $h = 0,945$ m de água nos dá a queda de pressão $P_1 - P_2 = \rho g h$.
+   - Fluido (Água a 71°C): $\rho \approx 977,2$ kg/m³, $\mu \approx 0,398 \times 10^{-3}$ Pa·s.
+   - $P_1 - P_2 = 977,2 \cdot 9,81 \cdot 0,945 \approx 9059$ Pa.
 
-    2. **Áreas:**
-    $$
-    A_1 = \frac{\pi}{4} d_1^2 = \frac{\pi}{4} (0,0965)^2 \approx 0,00732~\mathrm{m}^2
-    $$
-    $$
-    A_2 = \frac{\pi}{4} d_2^2 = \frac{\pi}{4} (0,0635)^2 \approx 0,00317~\mathrm{m}^2
-    $$
+2. **Equação de Vazão:**
+   $$
+   Q = C_n A_n \sqrt{\frac{2(P_1 - P_2)}{\rho(1 - \beta^4)}}
+   $$
+   Onde $A_n = \frac{\pi}{4}(0,0635)^2 \approx 0,003167$ m².
 
-    3. **Equação da continuidade:**
-    $$
-    Q = U_1 A_1 = U_2 A_2 \implies U_1 = \frac{Q}{A_1},~ U_2 = \frac{Q}{A_2}
-    $$
+3. **Solução Iterativa:**
+   **Tentativa 1:**
+   - **Chute:** Para um bocal com alto Re, assumimos $C_n = 0,99$.
+   - **Calcular Q:**
+     $$
+     Q = 0,99 \cdot (0,003167) \cdot \sqrt{\frac{2 \cdot 9059}{977,2 \cdot (1 - 0,658^4)}} \approx 0,01497\,\mathrm{m}^3/\mathrm{s}
+     $$
+   - **Calcular Re:**
+     - Velocidade no tubo: $V = Q/A_1 = 0,01497 / (\frac{\pi}{4}(0,0965)^2) \approx 2,05$ m/s.
+     - $Re = \frac{\rho V D}{\mu} = \frac{977,2 \cdot 2,05 \cdot 0,0965}{0,398 \times 10^{-3}} \approx 4,85 \times 10^5$.
+   - **Verificar $C_n$:** Para $\beta \approx 0,66$ e $Re \approx 4,85 \times 10^5$, gráficos padrão de coeficientes de descarga para bocais confirmam que $C_n \approx 0,99$.
 
-    4. **Equação de Bernoulli (desprezando perdas e altura):**
-    $$
-    \frac{U_1^2}{2g} + \frac{p_1}{\gamma} = \frac{U_2^2}{2g} + \frac{p_2}{\gamma}
-    $$
-    $$
-    \Delta h = \frac{p_1 - p_2}{\gamma}
-    $$
-
-    5. **Expressando as velocidades em função da vazão:**
-    $$
-    U_1 = \frac{Q}{A_1},~ U_2 = \frac{Q}{A_2}
-    $$
-    $$
-    \Delta h = \frac{U_2^2 - U_1^2}{2g}
-    $$
-    $$
-    \Delta h = \frac{1}{2g}\left[ \left(\frac{Q}{A_2}\right)^2 - \left(\frac{Q}{A_1}\right)^2 \right]
-    $$
-
-    6. **Isolando Q:**
-    $$
-    \Delta h = \frac{1}{2g}\left[ \frac{Q^2}{A_2^2} - \frac{Q^2}{A_1^2} \right]
-    $$
-    $$
-    \Delta h = \frac{Q^2}{2g}\left( \frac{1}{A_2^2} - \frac{1}{A_1^2} \right)
-    $$
-    $$
-    Q^2 = 2g \Delta h \left[ \frac{1}{A_2^2} - \frac{1}{A_1^2}\right]^{-1}
-    $$
-
-    7. **Calculando:**
-    - $g = 9,81~\mathrm{m/s^2}$
-    - $\frac{1}{A_2^2} - \frac{1}{A_1^2} = \frac{1}{0,00317^2} - \frac{1}{0,00732^2} \approx 99506 - 18660 = 80846$
-    - $\left[ \frac{1}{A_2^2} - \frac{1}{A_1^2} \right]^{-1} \approx 1,237 \times 10^{-5}$
-
-    $$
-    Q^2 = 2 \times 9,81 \times 0,945 \times 1,237 \times 10^{-5} \approx 2,29 \times 10^{-4}
-    $$
-    $$
-    Q = \sqrt{2,29 \times 10^{-4}} \approx 0,0151~\mathrm{m}^3/\mathrm{s}
-    $$
-
-    8. **Resposta final:**
-    $$
-    Q \approx 0,015~\mathrm{m}^3/\mathrm{s} = 15~\mathrm{L/s}
-    $$
-    > **Obs:** O valor pode variar levemente conforme o valor usado para $\rho$.
-        """,
-        "resposta": {"Q": 0.015},
-        "tolerancia": {"Q": 0.001},
-        "unidade": {"Q": "m³/s"}
+**Conclusão:**
+O chute inicial estava correto e a solução convergiu. A vazão de água no tubo é de aproximadamente **$0,0150$ m³/s**.
+""",
+        "resposta": 0.0150,
+        "tolerancia": 0.0002,
+        "unidade": "m³/s"
     },
-
     "8.112": {
         "capitulo": 8,
         "imagem": "images/8_112.png",
@@ -2837,51 +2712,41 @@ A vazão em volume é de aproximadamente **$6,11 \times 10^{-3}$ m³/s**.
             "determine o valor de $h$."
         ),
         "dica": (
-            "Use a equação de Bernoulli entre antes e depois do orifício (placa de orifício), relacionando a diferença de pressão ($h$) ao desnível indicado. "
-            r"Utilize a equação de continuidade e lembre-se de converter a vazão para $\mathrm{m}^3/\mathrm{s}$. Considere a diferença de área."
+            "Calcule a velocidade e o número de Reynolds. Use Re e a razão de diâmetros $\beta$ para encontrar o coeficiente de descarga $C_o$ em um gráfico padrão. "
+            "Aplique a equação do medidor de orifício para encontrar a queda de pressão e, consequentemente, a altura $h$."
         ),
         "resolucao": r"""
-    **Resolução passo a passo:**
+**Resolução passo a passo:**
 
-    1. **Dados:**
-    - $Q = 2,8~\mathrm{L/s} = 2,8 \times 10^{-3}~\mathrm{m}^3/\mathrm{s}$
-    - $d_1 = 51~\mathrm{mm} = 0,051~\mathrm{m}$
-    - $d_2 = 30,5~\mathrm{mm} = 0,0305~\mathrm{m}$
+1. **Dados e Parâmetros Iniciais:**
+   - Vazão: $Q = 2,8 \text{ L/s} = 2,8 \times 10^{-3}$ m³/s.
+   - Geometria: $D = 0,051$ m, $d = 0,0305$ m, $\beta = d/D \approx 0,598$.
+   - Fluido (Água a 20°C): $\rho \approx 998$ kg/m³, $\mu \approx 10^{-3}$ Pa·s.
+   - Velocidade no tubo: $V = Q/A = (2,8 \times 10^{-3}) / (\frac{\pi}{4}(0,051)^2) \approx 1,37$ m/s.
 
-    2. **Áreas:**
-    $$
-    A_1 = \frac{\pi}{4} d_1^2 = \frac{\pi}{4} (0,051)^2 \approx 0,00204~\mathrm{m}^2
-    $$
-    $$
-    A_2 = \frac{\pi}{4} d_2^2 = \frac{\pi}{4} (0,0305)^2 \approx 0,000731~\mathrm{m}^2
-    $$
+2. **Coeficiente de Descarga ($C_o$):**
+   - Número de Reynolds: $Re = \frac{\rho V D}{\mu} = \frac{998 \cdot 1,37 \cdot 0,051}{10^{-3}} \approx 69.700$.
+   - Para $Re \approx 7 \times 10^4$ e $\beta \approx 0,6$, gráficos padrão para placas de orifício indicam $C_o \approx 0,615$.
 
-    3. **Velocidades:**
-    $$
-    U_1 = \frac{Q}{A_1} \approx \frac{2,8 \times 10^{-3}}{0,00204} \approx 1,37~\mathrm{m/s}
-    $$
-    $$
-    U_2 = \frac{Q}{A_2} \approx \frac{2,8 \times 10^{-3}}{0,000731} \approx 3,83~\mathrm{m/s}
-    $$
+3. **Cálculo da Altura (h):**
+   A equação de vazão para um medidor de orifício pode ser rearranjada para isolar $h$:
+   $$
+   Q = C_o A_o \sqrt{\frac{2 g h}{1 - \beta^4}} \implies h = \frac{Q^2 (1 - \beta^4)}{2g (C_o A_o)^2}
+   $$
+   - Área do orifício: $A_o = \frac{\pi}{4}(0,0305)^2 \approx 0,0007306$ m².
+   - Substituindo os valores:
+   $$
+   h = \frac{(2,8 \times 10^{-3})^2 (1 - 0,598^4)}{2(9,81) (0,615 \cdot 0,0007306)^2}
+   $$ 
+   $$
+   h = \frac{(7,84 \times 10^{-6}) (0,872)}{19,62 \cdot (2,019 \times 10^{-7})} = \frac{6,836 \times 10^{-6}}{3,961 \times 10^{-6}} \approx 1,726\,\mathrm{m}
+   $$
 
-    4. **Aplicando Bernoulli entre as seções:**
-    $$
-    h = \frac{U_2^2 - U_1^2}{2g}
-    $$
-    $$
-    h = \frac{(3,83)^2 - (1,37)^2}{2 \times 9,81}
-    $$
-    $$
-    h = \frac{14,67 - 1,88}{19,62} \approx \frac{12,79}{19,62} \approx 0,652~\mathrm{m}
-    $$
-
-    5. **Resposta final:**
-    $$
-    h \approx 0,65~\mathrm{m}
-    $$
-        """,
-        "resposta": {"h": 0.65},
-        "tolerancia": {"h": 0.01},
+**Conclusão:**
+O valor de $h$ é de aproximadamente **1,73 m**, o que é consistente com a resposta do livro (1,76 m).
+""",
+        "resposta": 1.73,
+        "tolerancia": 0.04,
         "unidade": "m"
     }
     }
